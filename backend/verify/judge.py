@@ -112,9 +112,10 @@ Also report in `hallucinated_objects` any clearly visible furniture or fixture \
 that is NOT in the list above — an invented object is as much a consistency \
 failure as a missing one.
 
-Put concrete, specific observations in `issues`. "The sofa is against the left \
-wall but the map places it against the back wall" is useful; "layout could be \
-better" is not."""
+Put concrete, specific observations in `issues` — at most five, one sentence \
+each. "The sofa is against the left wall but the map places it against the back \
+wall" is useful; "layout could be better" is not. Keep them short: the verdict \
+matters more than the prose, and long lists have truncated the response."""
 
 
 class ConsistencyJudge(ABC):
@@ -221,7 +222,12 @@ class ClaudeJudge(ConsistencyJudge):
         try:
             response = self.client.messages.parse(
                 model=self.settings.judge_model,
-                max_tokens=4000,
+                # Not lowballed: adaptive thinking and the verdict share this
+                # budget, and at 4000 the JSON was being truncated mid-string —
+                # a valid-looking verdict became a parse error and the render
+                # was reported unverified. A judge that silently stops judging
+                # is worse than no judge, because the score is the product.
+                max_tokens=16000,
                 system=JUDGE_SYSTEM,
                 output_format=ConsistencyScores,
                 messages=[{"role": "user", "content": content}],
