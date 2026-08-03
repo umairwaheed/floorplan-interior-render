@@ -52,10 +52,12 @@ def _look_target(room: Room, objects: list[PlacedObject]) -> Vec2:
 
 #: A camera needs standing room. Eyes closer than this to a piece of furniture
 #: end up inside it, which fills the frame with one object's back face.
-PERSONAL_SPACE_M = 0.45
+#: Tried in order — a small, densely furnished bedroom has almost no floor left
+#: at the widest setting, and one cramped viewpoint beats none at all.
+PERSONAL_SPACE_STEPS = (0.45, 0.25, 0.10, 0.0)
 
 
-def _is_standable(eye: Vec2, objects: list[PlacedObject]) -> bool:
+def _is_standable(eye: Vec2, objects: list[PlacedObject], margin: float) -> bool:
     """Whether a person could actually stand here.
 
     Corner positions are the best viewpoints and are also exactly where
@@ -70,8 +72,8 @@ def _is_standable(eye: Vec2, objects: list[PlacedObject]) -> bool:
             continue  # a pendant overhead is not in the way
         corners = rect_corners(
             Vec2(x=obj.position_m.x, y=obj.position_m.y),
-            obj.size_m.width + PERSONAL_SPACE_M * 2,
-            obj.size_m.depth + PERSONAL_SPACE_M * 2,
+            obj.size_m.width + margin * 2,
+            obj.size_m.depth + margin * 2,
             obj.rotation_deg,
         )
         if point_in_polygon(eye, corners):
@@ -257,24 +259,47 @@ def place_cameras(
     # frame rather than blank ceiling.
     target = Vec3(x=target_2d.x, y=target_2d.y, z=eye_height * 0.62)
 
-    scored: list[tuple[float, Vec2, str]] = []
-    seen_labels: set[str] = set()
-    for eye, label in _candidate_eyes(room, settings.camera_corner_inset_m):
-        if eye.distance_to(target_2d) < 1.2:
-            continue  # too close to frame anything but one object
-        if not _is_standable(eye, objects):
-            continue
-        if label in seen_labels:
-            continue  # the first workable step-back per anchor is enough
-        seen_labels.add(label)
+    candidates = _candidate_eyes(room, settings.camera_corner_inset_m)
 
-        floor_coverage = estimate_coverage(room, eye, target_2d, settings.camera_fov_deg, aspect)
-        scored.append(
-            (
-                _score_viewpoint(room, objects, eye, target, settings, floor_coverage),
-                eye,
-                label,
+    # Relax the standing-room requirement until viewpoints appear. A small
+    # densely furnished bedroom has almost no floor left at the widest margin,
+    # and a cramped viewpoint is far better than the centroid fallback — which
+    # may well be inside the bed.
+    scored: list[tuple[float, Vec2, str]] = []
+    for margin in PERSONAL_SPACE_STEPS:
+        scored = []
+        seen_labels: set[str] = set()
+        for eye, label in candidates:
+            if eye.distance_to(target_2d) < 1.2:
+                continue  # too close to frame anything but one object
+            if not _is_standable(eye, objects, margin):
+                continue
+            if label in seen_labels:
+                continue  # the first workable step-back per anchor is enough
+            seen_labels.add(label)
+
+            floor_coverage = estimate_coverage(
+                room, eye, target_2d, settings.camera_fov_deg, aspect
             )
+            scored.append(
+                (
+                    _score_viewpoint(room, objects, eye, target, settings, floor_coverage),
+                    eye,
+                    label,
+                )
+            )
+
+        if len(scored) >= count:
+            break
+        if scored and margin <= PERSONAL_SPACE_STEPS[-2]:
+            break  # something is better than nothing; stop relaxing
+
+    if margin < PERSONAL_SPACE_STEPS[0] and scored:
+        logger.info(
+            "room %s: relaxed camera standing room to %.2f m to find %d viewpoint(s)",
+            room.id,
+            margin,
+            len(scored),
         )
 
     scored.sort(key=lambda item: (-item[0], item[2]))
@@ -283,7 +308,7 @@ def place_cameras(
     for score, eye, label in scored:
         if len(cameras) >= count:
             break
-        if score < settings.min_camera_coverage_pct and cameras:
+        if score < settings.min_camera_score and cameras:
             break  # keep at least one camera even in an awkward room
 
         # Skip viewpoints too close to one already chosen — two cameras a

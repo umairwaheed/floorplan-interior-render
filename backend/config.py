@@ -54,7 +54,10 @@ class Settings(BaseSettings):
     camera_height_m: float = 1.5
     camera_corner_inset_m: float = 0.6
     camera_fov_deg: float = 60.0
-    min_camera_coverage_pct: float = 0.45
+    #: Floor for the composite viewpoint score (visible objects + coverage −
+    #: crowding), not a coverage percentage. Deliberately low: a cramped room
+    #: still deserves its viewpoints, and the score is only used to *rank*.
+    min_camera_score: float = 0.05
 
     # --- Placement solver --------------------------------------------------
     min_circulation_m: float = 0.7

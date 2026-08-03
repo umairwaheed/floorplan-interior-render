@@ -73,7 +73,7 @@ Three consequences fall out of this design for free:
 make install      # Python 3.12 venv + dependencies
 make catalog      # build the product index (~288 seeded products)
 make run          # API + web UI on http://localhost:8000
-make test         # 138 tests
+make test         # 160 tests
 ```
 
 The catalog, retrieval, BOM, calibration and geometry layers are fully offline
@@ -154,6 +154,10 @@ backend/
     cameras.py            viewpoint selection, scored by actual rasterization
     raster.py             pinhole + z-buffer → depth, segmentation, wireframe
     service.py            → ConditioningMaps on disk
+  imagegen/
+    prompts.py            prompts assembled from the graph, never free-form
+    backends.py           ImageBackend → Mock / Gemini (Nova Canvas would slot in)
+    service.py            multi-view orchestration + the anchor mechanism
   api/                    FastAPI routers
 frontend/                 vanilla JS — no build step
 tests/
@@ -187,6 +191,23 @@ curl "localhost:8000/catalog/search?style=japandi&material=oak\
 &max_width_m=1.8&max_depth_m=0.5&max_price=2000&limit=5"
 ```
 
+### On AWS
+
+Only the Claude half ports to AWS. Gemini is a Google model and is not on
+Bedrock — its cloud home is Vertex AI. Claude runs on Bedrock
+(`anthropic.claude-opus-5`) or, better, on **Claude Platform on AWS**
+(Anthropic-operated, same-day parity, bare model IDs); everything this project
+uses — vision input, structured outputs, adaptive thinking, `effort` — is
+supported there.
+
+For images on AWS the option is **Amazon Nova Canvas**, and it is an
+interesting one: it has native structural control modes that would consume the
+segmentation buffer as a first-class conditioning signal, which fits this
+architecture more closely than Gemini does. Gemini ships because it is stronger
+at multi-image reference, and identity drift between viewpoints is the failure
+this system exists to prevent. `NovaCanvasBackend` would slot into
+`ImageBackend` unchanged.
+
 ### Known gap
 
 The seeded catalog has no product photography. Real product photos are the
@@ -203,8 +224,8 @@ here. The view-1 appearance anchor carries identity in the meantime.
 | 2. Floor plan ingestion + m² scale calibration | ✅ done |
 | 3. Design agent: selection + placement solver | ✅ done |
 | 4. Camera rig + numpy geometry rasterizer | ✅ done |
-| 5. Gemini image backend + multi-view prompting | ⬜ next |
-| 6. VLM consistency judge + retry loop | ⬜ |
+| 5. Gemini image backend + multi-view prompting | ✅ done |
+| 6. VLM consistency judge + retry loop | ⬜ next |
 | 7. REST API, SSE progress, web UI, CLI | ⬜ |
 | 8. Docs, sample outputs, Docker | ⬜ |
 
