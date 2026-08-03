@@ -85,6 +85,15 @@ backend that passes the geometry buffers through.
 cp .env.example .env    # then fill in keys when you want real renders
 ```
 
+Or skip the browser entirely — the CLI runs the identical pipeline through the
+same service layer, which is how the architecture demonstrates it doesn't
+depend on the UI:
+
+```bash
+python cli.py run plan.pdf --page 2 --style scandinavian --views 2
+python cli.py catalog --category sofa --style industrial --max-width 2.0
+```
+
 ## Design decisions
 
 **Pixel space and metres never mix.** The vision model is only ever asked for
@@ -179,8 +188,12 @@ backend/
   verify/
     judge.py              Claude scores Gemini's output against ground truth
     service.py            per-view retry + honest scene summary
-  api/                    FastAPI routers
+  services/
+    pipeline.py           the six stages, wired together once
+    store.py              in-process floor plan + job stores, thread pool
+  api/                    FastAPI routers (catalog, floorplans, designs, SSE)
 frontend/                 vanilla JS — no build step
+cli.py                    same pipeline, no web server
 tests/
 ```
 
@@ -247,8 +260,8 @@ here. The view-1 appearance anchor carries identity in the meantime.
 | 4. Camera rig + numpy geometry rasterizer | ✅ done |
 | 5. Gemini image backend + multi-view prompting | ✅ done |
 | 6. VLM consistency judge + retry loop | ✅ done |
-| 7. REST API, SSE progress, web UI, CLI | ⬜ next |
-| 8. Docs, sample outputs, Docker | ⬜ |
+| 7. REST API, SSE progress, web UI, CLI | ✅ done |
+| 8. Docs, sample outputs, Docker | ⬜ next |
 
 ## Stack
 

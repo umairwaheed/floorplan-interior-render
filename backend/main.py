@@ -14,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from .api import catalog_routes
+from .api import catalog_routes, design_routes
 from .config import get_settings
 
 logging.basicConfig(
@@ -44,6 +44,7 @@ app.add_middleware(
 
 
 app.include_router(catalog_routes.router)
+app.include_router(design_routes.router)
 
 
 @app.get("/health", tags=["meta"])

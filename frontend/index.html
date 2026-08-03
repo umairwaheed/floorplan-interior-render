@@ -8,16 +8,75 @@
 </head>
 <body>
   <header class="site-header">
-    <h1>Floor&nbsp;Plan → Interior Renders</h1>
-    <p class="tagline">Photorealistic, multi-viewpoint, furnished from a real product catalog.</p>
+    <div class="wrap">
+      <h1>Floor&nbsp;Plan → Interior Renders</h1>
+      <p class="tagline">
+        Photorealistic, multi-viewpoint, furnished from a real product catalog.
+      </p>
+      <p id="health" class="health">Checking backend…</p>
+    </div>
   </header>
 
-  <main id="app">
-    <section class="panel" id="panel-status">
-      <h2>Scaffold running</h2>
-      <p id="health">Checking backend…</p>
+  <main class="wrap">
+    <!-- 1. Upload -->
+    <section class="panel" id="step-upload">
+      <h2><span class="step">1</span> Floor plan</h2>
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="file" accept=".png,.jpg,.jpeg,.pdf" hidden />
+        <p><strong>Drop a floor plan here</strong> or <button class="link" id="browse">browse</button></p>
+        <p class="muted">PNG, JPG or PDF</p>
+      </div>
+      <div class="row" id="upload-options">
+        <label>PDF page <input type="number" id="page" value="1" min="1" step="1" /></label>
+        <label>Ceiling height (m) <input type="number" id="ceiling" value="2.7" min="2" max="5" step="0.1" /></label>
+        <label title="Only needed when the plan prints no m² labels or dimensions">
+          Scale override (px/m) <input type="number" id="pxperm" placeholder="auto" min="1" step="0.1" />
+        </label>
+      </div>
+      <p id="upload-status" class="status"></p>
+      <div id="plan-summary" class="hidden"></div>
+    </section>
+
+    <!-- 2. Style -->
+    <section class="panel hidden" id="step-style">
+      <h2><span class="step">2</span> Style &amp; palette</h2>
+      <div id="styles" class="style-grid"></div>
+      <div id="palettes" class="palette-row"></div>
+      <div class="row">
+        <label>Views per room <input type="number" id="views" value="2" min="1" max="4" /></label>
+        <label>Variations <input type="number" id="variations" value="1" min="1" max="3" /></label>
+        <label>Budget (GEL) <input type="number" id="budget" placeholder="none" min="0" step="500" /></label>
+      </div>
+      <button class="primary" id="generate" disabled>Generate renders</button>
+      <p class="muted" id="cost-note"></p>
+    </section>
+
+    <!-- 3. Progress -->
+    <section class="panel hidden" id="step-progress">
+      <h2><span class="step">3</span> Progress</h2>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <p id="progress-detail" class="status"></p>
+      <ul id="log" class="log"></ul>
+    </section>
+
+    <!-- 4. Results -->
+    <section class="panel hidden" id="step-results">
+      <h2><span class="step">4</span> Renders</h2>
+      <div id="consistency" class="scores"></div>
+      <div id="gallery" class="gallery"></div>
+      <h3>Bill of materials</h3>
+      <div id="bom"></div>
     </section>
   </main>
+
+  <div class="lightbox hidden" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+    <div class="lightbox-body">
+      <figure><figcaption>Render</figcaption><img id="lb-render" alt="Generated render" /></figure>
+      <figure><figcaption>Scene geometry (ground truth)</figcaption><img id="lb-preview" alt="Scene geometry" /></figure>
+    </div>
+    <p class="lightbox-caption" id="lb-caption"></p>
+  </div>
 
   <script src="/app/app.js"></script>
 </body>

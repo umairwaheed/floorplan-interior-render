@@ -191,7 +191,13 @@ class ProductIndex:
             )
             params += [w_mm, d_mm, w_mm, d_mm]
         elif query.max_width_m is not None:
-            clauses.append("MIN(width_mm, depth_mm) <= ?")
+            # With only one dimension given, this is a plain search filter, not
+            # a slot-fit test, so it means what a person asking for "no wider
+            # than 2 m" expects. The rotation-allowing form above is used when
+            # both dimensions are supplied — i.e. when placement is fitting a
+            # real slot. `MIN(width, depth) <= x` here would return a 2.6 m
+            # sofa for a 2 m query on the grounds that it is only 0.9 m deep.
+            clauses.append("width_mm <= ?")
             params.append(query.max_width_m * 1000)
 
         if query.max_height_m is not None:
