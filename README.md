@@ -73,7 +73,7 @@ Three consequences fall out of this design for free:
 make install      # Python 3.12 venv + dependencies
 make catalog      # build the product index (~288 seeded products)
 make run          # API + web UI on http://localhost:8000
-make test         # 83 tests
+make test         # 116 tests
 ```
 
 The catalog, retrieval, BOM, calibration and geometry layers are fully offline
@@ -143,7 +143,13 @@ backend/
     extract.py            two-pass vision extraction (locate region → geometry)
     calibrate.py          least-squares px→m solve against printed m² labels
     service.py            pipeline + the single Y-flip into world coordinates
-  design/styles.py        12 styles × 25 palettes
+  design/
+    styles.py             12 styles × 25 palettes
+    slots.py              room programs — what each room type needs
+    selection.py          binds slots to real catalog products
+    geometry.py           exact OBB intersection, inward normals
+    placement.py          two-tier constraint solver (anneal + derive)
+    agent.py              orchestration → content-hashed Scene
   api/                    FastAPI routers
 frontend/                 vanilla JS — no build step
 tests/
@@ -191,8 +197,8 @@ here. The view-1 appearance anchor carries identity in the meantime.
 | 0. Scaffold, schemas, config, scene graph | ✅ done |
 | 1. Catalog adapters, index, hybrid retrieval, BOM | ✅ done |
 | 2. Floor plan ingestion + m² scale calibration | ✅ done |
-| 3. Design agent: selection + placement solver | ⬜ next |
-| 4. Camera rig + numpy geometry rasterizer | ⬜ |
+| 3. Design agent: selection + placement solver | ✅ done |
+| 4. Camera rig + numpy geometry rasterizer | ⬜ next |
 | 5. Gemini image backend + multi-view prompting | ⬜ |
 | 6. VLM consistency judge + retry loop | ⬜ |
 | 7. REST API, SSE progress, web UI, CLI | ⬜ |
