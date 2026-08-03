@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.DS_Store
+.pytest_cache/
+.ruff_cache/
+
+data/uploads/*
+data/outputs/*
+data/catalog.db
+!data/**/.gitkeep
+
+# The seeded catalog IS committed — it's what makes the repo runnable offline.
+!data/catalog/*.json
+
+# The client's assessment brief — their document, not mine to publish.
+AI_Engineer_Technical_Assessment_v1.pdf

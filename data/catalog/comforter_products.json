@@ -1,0 +1,3700 @@
+{
+  "supplier": "comforter",
+  "products": [
+    {
+      "sku": "SOFA-0001",
+      "title": "Bergen Tight-Back 3-Seat Sofa — Beige Cotton",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Japandi 3-seat sofa in beige cotton. Tight-Back. Part of the Bergen collection.",
+      "dimensions": "2594x934x821 mm",
+      "color": "beige",
+      "material": "cotton",
+      "style": [
+        "japandi",
+        "contemporary",
+        "scandinavian",
+        "bohemian"
+      ],
+      "price": "2 294.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0001",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0002",
+      "title": "Kyoto Deep-Seated 3-Seat Sofa — Grey Faux Leather",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Contemporary 3-seat sofa in grey faux leather. Deep-Seated. Part of the Kyoto collection.",
+      "dimensions": "2576x958x869 mm",
+      "color": "grey",
+      "material": "faux leather",
+      "style": [
+        "contemporary",
+        "modern",
+        "minimalist",
+        "industrial"
+      ],
+      "price": "2 679.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0002",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0003",
+      "title": "Nara Low-Profile 3-Seat Sofa — Off-White Leather",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Contemporary 3-seat sofa in off-white leather. Low-Profile. Part of the Nara collection.",
+      "dimensions": "1974x914x768 mm",
+      "color": "off-white",
+      "material": "leather",
+      "style": [
+        "contemporary",
+        "classic",
+        "minimalist",
+        "scandinavian"
+      ],
+      "price": "1 369.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0003",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0004",
+      "title": "Aarhus Tight-Back 3-Seat Sofa — Green Linen",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Japandi 3-seat sofa in green linen. Tight-Back. Part of the Aarhus collection.",
+      "dimensions": "2389x956x752 mm",
+      "color": "green",
+      "material": "linen",
+      "style": [
+        "japandi",
+        "scandinavian",
+        "contemporary",
+        "bohemian"
+      ],
+      "price": "2 729.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0004",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0005",
+      "title": "Malmo Tight-Back 3-Seat Sofa — Green Cotton",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Bohemian 3-seat sofa in green cotton. Tight-Back. Part of the Malmo collection.",
+      "dimensions": "2387x945x862 mm",
+      "color": "green",
+      "material": "cotton",
+      "style": [
+        "bohemian",
+        "japandi",
+        "luxury",
+        "scandinavian"
+      ],
+      "price": "4 819.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0005",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0006",
+      "title": "Verona Low-Profile 3-Seat Sofa — Off-White Linen",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Rustic 3-seat sofa in off-white linen. Low-Profile. Part of the Verona collection.",
+      "dimensions": "2463x900x883 mm",
+      "color": "off-white",
+      "material": "linen",
+      "style": [
+        "rustic",
+        "minimalist",
+        "contemporary",
+        "scandinavian"
+      ],
+      "price": "1 484.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0006",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0007",
+      "title": "Siena Low-Profile 3-Seat Sofa — Charcoal Wool",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Scandinavian 3-seat sofa in charcoal wool. Low-Profile. Part of the Siena collection.",
+      "dimensions": "2146x981x813 mm",
+      "color": "charcoal",
+      "material": "wool",
+      "style": [
+        "scandinavian",
+        "industrial"
+      ],
+      "price": "3 564.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0007",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0008",
+      "title": "Lisbon Deep-Seated 3-Seat Sofa — Blue Linen",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Japandi 3-seat sofa in blue linen. Deep-Seated. Part of the Lisbon collection.",
+      "dimensions": "2268x871x878 mm",
+      "color": "blue",
+      "material": "linen",
+      "style": [
+        "japandi",
+        "contemporary",
+        "classic",
+        "minimalist"
+      ],
+      "price": "4 364.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0008",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0009",
+      "title": "Porto Deep-Seated 3-Seat Sofa — Beige Leather",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Classic 3-seat sofa in beige leather. Deep-Seated. Part of the Porto collection.",
+      "dimensions": "2163x943x786 mm",
+      "color": "beige",
+      "material": "leather",
+      "style": [
+        "classic",
+        "rustic",
+        "luxury",
+        "scandinavian"
+      ],
+      "price": "2 479.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0009",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0010",
+      "title": "Vienna Low-Profile 3-Seat Sofa — Beige Boucle",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Scandinavian 3-seat sofa in beige boucle. Low-Profile. Part of the Vienna collection.",
+      "dimensions": "2514x926x893 mm",
+      "color": "beige",
+      "material": "boucle",
+      "style": [
+        "scandinavian",
+        "rustic",
+        "modern",
+        "japandi"
+      ],
+      "price": "2 469.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0010",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0011",
+      "title": "Prague Deep-Seated 3-Seat Sofa — Black Faux Leather",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Luxury 3-seat sofa in black faux leather. Deep-Seated. Part of the Prague collection.",
+      "dimensions": "2005x930x888 mm",
+      "color": "black",
+      "material": "faux leather",
+      "style": [
+        "luxury",
+        "minimalist",
+        "industrial"
+      ],
+      "price": "3 459.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0011",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0012",
+      "title": "Tbilisi Tight-Back 3-Seat Sofa — Blue Linen",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Contemporary 3-seat sofa in blue linen. Tight-Back. Part of the Tbilisi collection.",
+      "dimensions": "1934x956x806 mm",
+      "color": "blue",
+      "material": "linen",
+      "style": [
+        "contemporary",
+        "minimalist"
+      ],
+      "price": "1 649.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0012",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0013",
+      "title": "Batumi Low-Profile 3-Seat Sofa — White Boucle",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Minimalist 3-seat sofa in white boucle. Low-Profile. Part of the Batumi collection.",
+      "dimensions": "2591x958x806 mm",
+      "color": "white",
+      "material": "boucle",
+      "style": [
+        "minimalist",
+        "scandinavian",
+        "modern"
+      ],
+      "price": "4 149.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0013",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0014",
+      "title": "Kutaisi Loose-Cushion 3-Seat Sofa — Charcoal Boucle",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Modern 3-seat sofa in charcoal boucle. Loose-Cushion. Part of the Kutaisi collection.",
+      "dimensions": "2331x958x783 mm",
+      "color": "charcoal",
+      "material": "boucle",
+      "style": [
+        "modern",
+        "minimalist",
+        "industrial",
+        "japandi"
+      ],
+      "price": "2 749.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0014",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0015",
+      "title": "Aspen 2-Seat Sofa — Tan Wool",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Scandinavian 2-seat sofa in tan wool. Part of the Aspen collection.",
+      "dimensions": "1762x923x814 mm",
+      "color": "tan",
+      "material": "wool",
+      "style": [
+        "scandinavian",
+        "rustic",
+        "bohemian"
+      ],
+      "price": "2 064.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0015",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0016",
+      "title": "Nordic 2-Seat Sofa — Black Boucle",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Japanese 2-seat sofa in black boucle. Part of the Nordic collection.",
+      "dimensions": "1483x847x809 mm",
+      "color": "black",
+      "material": "boucle",
+      "style": [
+        "japanese",
+        "minimalist"
+      ],
+      "price": "934.00",
+      "currency": "GEL",
+      "in_stock": false,
+      "url": "https://example.comforter.ge/p/sofa-0016",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0017",
+      "title": "Atlas 2-Seat Sofa — Beige Leather",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Scandinavian 2-seat sofa in beige leather. Part of the Atlas collection.",
+      "dimensions": "1578x922x869 mm",
+      "color": "beige",
+      "material": "leather",
+      "style": [
+        "scandinavian",
+        "modern"
+      ],
+      "price": "3 174.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0017",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0018",
+      "title": "Vega 2-Seat Sofa — Charcoal Linen",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Contemporary 2-seat sofa in charcoal linen. Part of the Vega collection.",
+      "dimensions": "1511x944x781 mm",
+      "color": "charcoal",
+      "material": "linen",
+      "style": [
+        "contemporary",
+        "modern"
+      ],
+      "price": "1 789.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0018",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0019",
+      "title": "Lumen 2-Seat Sofa — Tan Velvet",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Bohemian 2-seat sofa in tan velvet. Part of the Lumen collection.",
+      "dimensions": "1742x915x874 mm",
+      "color": "tan",
+      "material": "velvet",
+      "style": [
+        "bohemian",
+        "mid_century",
+        "classic"
+      ],
+      "price": "2 889.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0019",
+      "images": []
+    },
+    {
+      "sku": "SOFA-0020",
+      "title": "Terra 2-Seat Sofa — Off-White Wool",
+      "category": "sofa",
+      "normalized_category": "sofa",
+      "description": "Rustic 2-seat sofa in off-white wool. Part of the Terra collection.",
+      "dimensions": "1753x853x801 mm",
+      "color": "off-white",
+      "material": "wool",
+      "style": [
+        "rustic",
+        "contemporary",
+        "minimalist"
+      ],
+      "price": "2 114.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/sofa-0020",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0021",
+      "title": "Onyx Lounge Armchair — White Velvet",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Contemporary armchair in white velvet. Lounge. Part of the Onyx collection.",
+      "dimensions": "824x852x740 mm",
+      "color": "white",
+      "material": "velvet",
+      "style": [
+        "contemporary",
+        "minimalist"
+      ],
+      "price": "1 129.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0021",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0022",
+      "title": "Ivory Wing-Back Armchair — Mustard Wool",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Contemporary armchair in mustard wool. Wing-Back. Part of the Ivory collection.",
+      "dimensions": "872x807x1035 mm",
+      "color": "mustard",
+      "material": "wool",
+      "style": [
+        "contemporary",
+        "bohemian",
+        "scandinavian"
+      ],
+      "price": "2 004.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0022",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0023",
+      "title": "Cascade Lounge Armchair — White Linen",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Scandinavian armchair in white linen. Lounge. Part of the Cascade collection.",
+      "dimensions": "792x863x756 mm",
+      "color": "white",
+      "material": "linen",
+      "style": [
+        "scandinavian",
+        "modern",
+        "rustic"
+      ],
+      "price": "2 019.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0023",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0024",
+      "title": "Meridian Swivel Armchair — Charcoal Boucle",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Minimalist armchair in charcoal boucle. Swivel. Part of the Meridian collection.",
+      "dimensions": "950x864x823 mm",
+      "color": "charcoal",
+      "material": "boucle",
+      "style": [
+        "minimalist",
+        "industrial"
+      ],
+      "price": "1 229.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0024",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0025",
+      "title": "Solace Lounge Armchair — Black Leather",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Industrial armchair in black leather. Lounge. Part of the Solace collection.",
+      "dimensions": "863x864x758 mm",
+      "color": "black",
+      "material": "leather",
+      "style": [
+        "industrial",
+        "luxury",
+        "minimalist",
+        "classic"
+      ],
+      "price": "1 229.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0025",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0026",
+      "title": "Harbour Lounge Armchair — Beige Velvet",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Classic armchair in beige velvet. Lounge. Part of the Harbour collection.",
+      "dimensions": "804x811x831 mm",
+      "color": "beige",
+      "material": "velvet",
+      "style": [
+        "classic",
+        "luxury",
+        "scandinavian"
+      ],
+      "price": "1 299.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0026",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0027",
+      "title": "Linea Swivel Armchair — Charcoal Cotton",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Modern armchair in charcoal cotton. Swivel. Part of the Linea collection.",
+      "dimensions": "854x857x826 mm",
+      "color": "charcoal",
+      "material": "cotton",
+      "style": [
+        "modern",
+        "japandi"
+      ],
+      "price": "1 494.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0027",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0028",
+      "title": "Sable Accent Armchair — Beige Leather",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Classic armchair in beige leather. Accent. Part of the Sable collection.",
+      "dimensions": "739x898x884 mm",
+      "color": "beige",
+      "material": "leather",
+      "style": [
+        "classic",
+        "luxury",
+        "scandinavian",
+        "japandi"
+      ],
+      "price": "1 954.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0028",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0029",
+      "title": "Marlow Accent Armchair — Mustard Rattan",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Mid Century armchair in mustard rattan. Accent. Part of the Marlow collection.",
+      "dimensions": "918x763x1038 mm",
+      "color": "mustard",
+      "material": "rattan",
+      "style": [
+        "mid_century",
+        "contemporary",
+        "bohemian",
+        "japandi"
+      ],
+      "price": "644.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0029",
+      "images": []
+    },
+    {
+      "sku": "ARMC-0030",
+      "title": "Oslo Accent Armchair — Grey Boucle",
+      "category": "armchair",
+      "normalized_category": "armchair",
+      "description": "Industrial armchair in grey boucle. Accent. Part of the Oslo collection.",
+      "dimensions": "812x765x895 mm",
+      "color": "grey",
+      "material": "boucle",
+      "style": [
+        "industrial",
+        "modern"
+      ],
+      "price": "1 219.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/armc-0030",
+      "images": []
+    },
+    {
+      "sku": "DINI-0031",
+      "title": "Bergen Dining Chair — Tan Birch",
+      "category": "dining chair",
+      "normalized_category": "dining_chair",
+      "description": "Minimalist dining chair in tan birch. Part of the Bergen collection.",
+      "dimensions": "426x535x827 mm",
+      "color": "tan",
+      "material": "birch",
+      "style": [
+        "minimalist",
+        "bohemian",
+        "mid_century",
+        "contemporary"
+      ],
+      "price": "509.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0031",
+      "images": []
+    },
+    {
+      "sku": "DINI-0032",
+      "title": "Kyoto Dining Chair — Off-White Pine",
+      "category": "dining chair",
+      "normalized_category": "dining_chair",
+      "description": "Japandi dining chair in off-white pine. Part of the Kyoto collection.",
+      "dimensions": "454x484x913 mm",
+      "color": "off-white",
+      "material": "pine",
+      "style": [
+        "japandi",
+        "contemporary",
+        "rustic"
+      ],
+      "price": "284.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0032",
+      "images": []
+    },
+    {
+      "sku": "DINI-0033",
+      "title": "Nara Dining Chair — Off-White Leather",
+      "category": "dining chair",
+      "normalized_category": "dining_chair",
+      "description": "Mid Century dining chair in off-white leather. Part of the Nara collection.",
+      "dimensions": "469x548x884 mm",
+      "color": "off-white",
+      "material": "leather",
+      "style": [
+        "mid_century",
+        "industrial",
+        "scandinavian"
+      ],
+      "price": "264.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0033",
+      "images": []
+    },
+    {
+      "sku": "DINI-0034",
+      "title": "Aarhus Dining Chair — Charcoal Pine",
+      "category": "dining chair",
+      "normalized_category": "dining_chair",
+      "description": "Bohemian dining chair in charcoal pine. Part of the Aarhus collection.",
+      "dimensions": "487x525x915 mm",
+      "color": "charcoal",
+      "material": "pine",
+      "style": [
+        "bohemian",
+        "industrial",
+        "scandinavian"
+      ],
+      "price": "544.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0034",
+      "images": []
+    },
+    {
+      "sku": "DINI-0035",
+      "title": "Malmo Dining Chair — Grey Birch",
+      "category": "dining chair",
+      "normalized_category": "dining_chair",
+      "description": "Japandi dining chair in grey birch. Part of the Malmo collection.",
+      "dimensions": "445x513x856 mm",
+      "color": "grey",
+      "material": "birch",
+      "style": [
+        "japandi",
+        "industrial"
+      ],
+      "price": "499.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0035",
+      "images": []
+    },
+    {
+      "sku": "DINI-0036",
+      "title": "Verona Dining Chair — Beige Pine",
+      "category": "dining chair",
+      "normalized_category": "dining_chair",
+      "description": "Bohemian dining chair in beige pine. Part of the Verona collection.",
+      "dimensions": "452x515x867 mm",
+      "color": "beige",
+      "material": "pine",
+      "style": [
+        "bohemian",
+        "contemporary"
+      ],
+      "price": "484.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0036",
+      "images": []
+    },
+    {
+      "sku": "DINI-0037",
+      "title": "Siena Dining Chair — White Walnut",
+      "category": "dining chair",
+      "normalized_category": "dining_chair",
+      "description": "Modern dining chair in white walnut. Part of the Siena collection.",
+      "dimensions": "474x491x867 mm",
+      "color": "white",
+      "material": "walnut",
+      "style": [
+        "modern",
+        "japandi",
+        "classic",
+        "japanese"
+      ],
+      "price": "624.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0037",
+      "images": []
+    },
+    {
+      "sku": "DINI-0038",
+      "title": "Lisbon Dining Chair — Beige Birch",
+      "category": "dining chair",
+      "normalized_category": "dining_chair",
+      "description": "Contemporary dining chair in beige birch. Part of the Lisbon collection.",
+      "dimensions": "457x547x904 mm",
+      "color": "beige",
+      "material": "birch",
+      "style": [
+        "contemporary",
+        "rustic",
+        "minimalist",
+        "scandinavian"
+      ],
+      "price": "554.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0038",
+      "images": []
+    },
+    {
+      "sku": "OFFI-0039",
+      "title": "Porto Office Chair — White Steel",
+      "category": "office chair",
+      "normalized_category": "office_chair",
+      "description": "Contemporary office chair in white steel. Part of the Porto collection.",
+      "dimensions": "644x617x1198 mm",
+      "color": "white",
+      "material": "steel",
+      "style": [
+        "contemporary",
+        "modern"
+      ],
+      "price": "1 049.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/offi-0039",
+      "images": []
+    },
+    {
+      "sku": "OFFI-0040",
+      "title": "Vienna Office Chair — Black Plastic",
+      "category": "office chair",
+      "normalized_category": "office_chair",
+      "description": "Minimalist office chair in black plastic. Part of the Vienna collection.",
+      "dimensions": "619x664x1173 mm",
+      "color": "black",
+      "material": "plastic",
+      "style": [
+        "minimalist",
+        "contemporary"
+      ],
+      "price": "1 394.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/offi-0040",
+      "images": []
+    },
+    {
+      "sku": "OFFI-0041",
+      "title": "Prague Office Chair — Black Steel",
+      "category": "office chair",
+      "normalized_category": "office_chair",
+      "description": "Minimalist office chair in black steel. Part of the Prague collection.",
+      "dimensions": "652x599x1157 mm",
+      "color": "black",
+      "material": "steel",
+      "style": [
+        "minimalist",
+        "contemporary"
+      ],
+      "price": "1 489.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/offi-0041",
+      "images": []
+    },
+    {
+      "sku": "OFFI-0042",
+      "title": "Tbilisi Office Chair — Grey Leather",
+      "category": "office chair",
+      "normalized_category": "office_chair",
+      "description": "Minimalist office chair in grey leather. Part of the Tbilisi collection.",
+      "dimensions": "671x661x1006 mm",
+      "color": "grey",
+      "material": "leather",
+      "style": [
+        "minimalist",
+        "contemporary"
+      ],
+      "price": "599.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/offi-0042",
+      "images": []
+    },
+    {
+      "sku": "STOO-0043",
+      "title": "Batumi Stool — Grey Teak",
+      "category": "stool",
+      "normalized_category": "stool",
+      "description": "Industrial stool in grey teak. Part of the Batumi collection.",
+      "dimensions": "439x394x465 mm",
+      "color": "grey",
+      "material": "teak",
+      "style": [
+        "industrial",
+        "contemporary",
+        "minimalist",
+        "japandi"
+      ],
+      "price": "184.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/stoo-0043",
+      "images": []
+    },
+    {
+      "sku": "STOO-0044",
+      "title": "Kutaisi Stool — Beige Ash",
+      "category": "stool",
+      "normalized_category": "stool",
+      "description": "Scandinavian stool in beige ash. Part of the Kutaisi collection.",
+      "dimensions": "427x354x431 mm",
+      "color": "beige",
+      "material": "ash",
+      "style": [
+        "scandinavian",
+        "contemporary"
+      ],
+      "price": "409.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/stoo-0044",
+      "images": []
+    },
+    {
+      "sku": "STOO-0045",
+      "title": "Aspen Stool — Off-White Oak",
+      "category": "stool",
+      "normalized_category": "stool",
+      "description": "Minimalist stool in off-white oak. Part of the Aspen collection.",
+      "dimensions": "357x389x626 mm",
+      "color": "off-white",
+      "material": "oak",
+      "style": [
+        "minimalist",
+        "contemporary",
+        "scandinavian"
+      ],
+      "price": "394.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/stoo-0045",
+      "images": []
+    },
+    {
+      "sku": "STOO-0046",
+      "title": "Nordic Stool — Off-White Birch",
+      "category": "stool",
+      "normalized_category": "stool",
+      "description": "Contemporary stool in off-white birch. Part of the Nordic collection.",
+      "dimensions": "409x407x483 mm",
+      "color": "off-white",
+      "material": "birch",
+      "style": [
+        "contemporary",
+        "scandinavian",
+        "japandi"
+      ],
+      "price": "404.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/stoo-0046",
+      "images": []
+    },
+    {
+      "sku": "STOO-0047",
+      "title": "Atlas Stool — White Walnut",
+      "category": "stool",
+      "normalized_category": "stool",
+      "description": "Modern stool in white walnut. Part of the Atlas collection.",
+      "dimensions": "407x383x735 mm",
+      "color": "white",
+      "material": "walnut",
+      "style": [
+        "modern",
+        "mid_century",
+        "scandinavian"
+      ],
+      "price": "384.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/stoo-0047",
+      "images": []
+    },
+    {
+      "sku": "BENC-0048",
+      "title": "Vega Bench — Black Teak",
+      "category": "bench",
+      "normalized_category": "bench",
+      "description": "Minimalist bench in black teak. Part of the Vega collection.",
+      "dimensions": "1129x401x462 mm",
+      "color": "black",
+      "material": "teak",
+      "style": [
+        "minimalist",
+        "modern",
+        "mid_century"
+      ],
+      "price": "414.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/benc-0048",
+      "images": []
+    },
+    {
+      "sku": "BENC-0049",
+      "title": "Lumen Bench — Charcoal Linen",
+      "category": "bench",
+      "normalized_category": "bench",
+      "description": "Contemporary bench in charcoal linen. Part of the Lumen collection.",
+      "dimensions": "1184x366x459 mm",
+      "color": "charcoal",
+      "material": "linen",
+      "style": [
+        "contemporary",
+        "industrial",
+        "modern"
+      ],
+      "price": "329.00",
+      "currency": "GEL",
+      "in_stock": false,
+      "url": "https://example.comforter.ge/p/benc-0049",
+      "images": []
+    },
+    {
+      "sku": "BENC-0050",
+      "title": "Terra Bench — Beige Walnut",
+      "category": "bench",
+      "normalized_category": "bench",
+      "description": "Rustic bench in beige walnut. Part of the Terra collection.",
+      "dimensions": "1178x379x469 mm",
+      "color": "beige",
+      "material": "walnut",
+      "style": [
+        "rustic",
+        "scandinavian",
+        "contemporary"
+      ],
+      "price": "649.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/benc-0050",
+      "images": []
+    },
+    {
+      "sku": "COFF-0051",
+      "title": "Onyx Rectangular Coffee Table — Walnut Steel",
+      "category": "coffee table",
+      "normalized_category": "coffee_table",
+      "description": "Industrial coffee table in walnut steel. Rectangular. Part of the Onyx collection.",
+      "dimensions": "1044x606x420 mm",
+      "color": "walnut",
+      "material": "steel",
+      "style": [
+        "industrial",
+        "classic",
+        "mid_century",
+        "modern"
+      ],
+      "price": "1 339.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/coff-0051",
+      "images": []
+    },
+    {
+      "sku": "COFF-0052",
+      "title": "Ivory Oval Coffee Table — Beige Glass",
+      "category": "coffee table",
+      "normalized_category": "coffee_table",
+      "description": "Scandinavian coffee table in beige glass. Oval. Part of the Ivory collection.",
+      "dimensions": "1250x715x370 mm",
+      "color": "beige",
+      "material": "glass",
+      "style": [
+        "scandinavian",
+        "rustic"
+      ],
+      "price": "249.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/coff-0052",
+      "images": []
+    },
+    {
+      "sku": "COFF-0053",
+      "title": "Cascade Oval Coffee Table — Off-White Oak",
+      "category": "coffee table",
+      "normalized_category": "coffee_table",
+      "description": "Modern coffee table in off-white oak. Oval. Part of the Cascade collection.",
+      "dimensions": "1266x735x424 mm",
+      "color": "off-white",
+      "material": "oak",
+      "style": [
+        "modern",
+        "japandi",
+        "minimalist",
+        "contemporary"
+      ],
+      "price": "2 134.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/coff-0053",
+      "images": []
+    },
+    {
+      "sku": "COFF-0054",
+      "title": "Meridian Rectangular Coffee Table — Oak Teak",
+      "category": "coffee table",
+      "normalized_category": "coffee_table",
+      "description": "Japanese coffee table in oak teak. Rectangular. Part of the Meridian collection.",
+      "dimensions": "997x741x365 mm",
+      "color": "oak",
+      "material": "teak",
+      "style": [
+        "japanese",
+        "mid_century"
+      ],
+      "price": "1 744.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/coff-0054",
+      "images": []
+    },
+    {
+      "sku": "COFF-0055",
+      "title": "Solace Oval Coffee Table — Charcoal Steel",
+      "category": "coffee table",
+      "normalized_category": "coffee_table",
+      "description": "Industrial coffee table in charcoal steel. Oval. Part of the Solace collection.",
+      "dimensions": "963x664x352 mm",
+      "color": "charcoal",
+      "material": "steel",
+      "style": [
+        "industrial",
+        "japandi",
+        "contemporary"
+      ],
+      "price": "1 124.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/coff-0055",
+      "images": []
+    },
+    {
+      "sku": "COFF-0056",
+      "title": "Harbour Nested Coffee Table — White Marble",
+      "category": "coffee table",
+      "normalized_category": "coffee_table",
+      "description": "Modern coffee table in white marble. Nested. Part of the Harbour collection.",
+      "dimensions": "1004x643x402 mm",
+      "color": "white",
+      "material": "marble",
+      "style": [
+        "modern",
+        "japanese",
+        "luxury"
+      ],
+      "price": "2 139.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/coff-0056",
+      "images": []
+    },
+    {
+      "sku": "COFF-0057",
+      "title": "Linea Nested Coffee Table — Oak Marble",
+      "category": "coffee table",
+      "normalized_category": "coffee_table",
+      "description": "Classic coffee table in oak marble. Nested. Part of the Linea collection.",
+      "dimensions": "1211x715x351 mm",
+      "color": "oak",
+      "material": "marble",
+      "style": [
+        "classic",
+        "luxury",
+        "contemporary"
+      ],
+      "price": "1 434.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/coff-0057",
+      "images": []
+    },
+    {
+      "sku": "COFF-0058",
+      "title": "Sable Rectangular Coffee Table — Walnut Ash",
+      "category": "coffee table",
+      "normalized_category": "coffee_table",
+      "description": "Minimalist coffee table in walnut ash. Rectangular. Part of the Sable collection.",
+      "dimensions": "1146x731x424 mm",
+      "color": "walnut",
+      "material": "ash",
+      "style": [
+        "minimalist",
+        "classic",
+        "japandi"
+      ],
+      "price": "529.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/coff-0058",
+      "images": []
+    },
+    {
+      "sku": "DINI-0059",
+      "title": "Marlow Round Dining Table — Off-White Teak",
+      "category": "dining table",
+      "normalized_category": "dining_table",
+      "description": "Japandi dining table in off-white teak. Round. Part of the Marlow collection.",
+      "dimensions": "1821x923x757 mm",
+      "color": "off-white",
+      "material": "teak",
+      "style": [
+        "japandi",
+        "mid_century"
+      ],
+      "price": "899.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0059",
+      "images": []
+    },
+    {
+      "sku": "DINI-0060",
+      "title": "Oslo Round Dining Table — Charcoal Birch",
+      "category": "dining table",
+      "normalized_category": "dining_table",
+      "description": "Scandinavian dining table in charcoal birch. Round. Part of the Oslo collection.",
+      "dimensions": "1578x910x755 mm",
+      "color": "charcoal",
+      "material": "birch",
+      "style": [
+        "scandinavian",
+        "minimalist"
+      ],
+      "price": "564.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0060",
+      "images": []
+    },
+    {
+      "sku": "DINI-0061",
+      "title": "Bergen Extendable Dining Table — Black Marble",
+      "category": "dining table",
+      "normalized_category": "dining_table",
+      "description": "Luxury dining table in black marble. Extendable. Part of the Bergen collection.",
+      "dimensions": "2127x827x763 mm",
+      "color": "black",
+      "material": "marble",
+      "style": [
+        "luxury",
+        "classic",
+        "modern",
+        "industrial"
+      ],
+      "price": "1 424.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0061",
+      "images": []
+    },
+    {
+      "sku": "DINI-0062",
+      "title": "Kyoto Extendable Dining Table — Charcoal Walnut",
+      "category": "dining table",
+      "normalized_category": "dining_table",
+      "description": "Modern dining table in charcoal walnut. Extendable. Part of the Kyoto collection.",
+      "dimensions": "1794x885x749 mm",
+      "color": "charcoal",
+      "material": "walnut",
+      "style": [
+        "modern",
+        "mid_century",
+        "industrial"
+      ],
+      "price": "2 144.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0062",
+      "images": []
+    },
+    {
+      "sku": "DINI-0063",
+      "title": "Nara Round Dining Table — Walnut Teak",
+      "category": "dining table",
+      "normalized_category": "dining_table",
+      "description": "Japanese dining table in walnut teak. Round. Part of the Nara collection.",
+      "dimensions": "1771x969x750 mm",
+      "color": "walnut",
+      "material": "teak",
+      "style": [
+        "japanese",
+        "classic",
+        "modern",
+        "japandi"
+      ],
+      "price": "2 529.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0063",
+      "images": []
+    },
+    {
+      "sku": "DINI-0064",
+      "title": "Aarhus Rectangular Dining Table — Charcoal Pine",
+      "category": "dining table",
+      "normalized_category": "dining_table",
+      "description": "Scandinavian dining table in charcoal pine. Rectangular. Part of the Aarhus collection.",
+      "dimensions": "1959x956x760 mm",
+      "color": "charcoal",
+      "material": "pine",
+      "style": [
+        "scandinavian",
+        "industrial"
+      ],
+      "price": "4 074.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0064",
+      "images": []
+    },
+    {
+      "sku": "DINI-0065",
+      "title": "Malmo Rectangular Dining Table — Oak Ash",
+      "category": "dining table",
+      "normalized_category": "dining_table",
+      "description": "Scandinavian dining table in oak ash. Rectangular. Part of the Malmo collection.",
+      "dimensions": "1826x815x751 mm",
+      "color": "oak",
+      "material": "ash",
+      "style": [
+        "scandinavian",
+        "japandi"
+      ],
+      "price": "2 489.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dini-0065",
+      "images": []
+    },
+    {
+      "sku": "DINI-0066",
+      "title": "Verona Rectangular Dining Table — Tan Pine",
+      "category": "dining table",
+      "normalized_category": "dining_table",
+      "description": "Mid Century dining table in tan pine. Rectangular. Part of the Verona collection.",
+      "dimensions": "1612x820x758 mm",
+      "color": "tan",
+      "material": "pine",
+      "style": [
+        "mid_century",
+        "scandinavian",
+        "rustic"
+      ],
+      "price": "1 164.00",
+      "currency": "GEL",
+      "in_stock": false,
+      "url": "https://example.comforter.ge/p/dini-0066",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0067",
+      "title": "Siena Side Table — Grey Pine",
+      "category": "side table",
+      "normalized_category": "side_table",
+      "description": "Scandinavian side table in grey pine. Part of the Siena collection.",
+      "dimensions": "473x528x552 mm",
+      "color": "grey",
+      "material": "pine",
+      "style": [
+        "scandinavian",
+        "bohemian",
+        "contemporary"
+      ],
+      "price": "524.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/side-0067",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0068",
+      "title": "Lisbon Side Table — Tan Steel",
+      "category": "side table",
+      "normalized_category": "side_table",
+      "description": "Modern side table in tan steel. Part of the Lisbon collection.",
+      "dimensions": "410x475x562 mm",
+      "color": "tan",
+      "material": "steel",
+      "style": [
+        "modern",
+        "minimalist",
+        "contemporary",
+        "bohemian"
+      ],
+      "price": "534.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/side-0068",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0069",
+      "title": "Porto Side Table — White Teak",
+      "category": "side table",
+      "normalized_category": "side_table",
+      "description": "Scandinavian side table in white teak. Part of the Porto collection.",
+      "dimensions": "407x505x496 mm",
+      "color": "white",
+      "material": "teak",
+      "style": [
+        "scandinavian",
+        "japandi",
+        "mid_century",
+        "minimalist"
+      ],
+      "price": "634.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/side-0069",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0070",
+      "title": "Vienna Side Table — Grey Teak",
+      "category": "side table",
+      "normalized_category": "side_table",
+      "description": "Modern side table in grey teak. Part of the Vienna collection.",
+      "dimensions": "514x485x536 mm",
+      "color": "grey",
+      "material": "teak",
+      "style": [
+        "modern",
+        "minimalist",
+        "contemporary",
+        "japandi"
+      ],
+      "price": "789.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/side-0070",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0071",
+      "title": "Prague Side Table — Grey Birch",
+      "category": "side table",
+      "normalized_category": "side_table",
+      "description": "Scandinavian side table in grey birch. Part of the Prague collection.",
+      "dimensions": "489x505x533 mm",
+      "color": "grey",
+      "material": "birch",
+      "style": [
+        "scandinavian",
+        "minimalist"
+      ],
+      "price": "829.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/side-0071",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0072",
+      "title": "Tbilisi Side Table — Grey Ash",
+      "category": "side table",
+      "normalized_category": "side_table",
+      "description": "Japandi side table in grey ash. Part of the Tbilisi collection.",
+      "dimensions": "427x456x619 mm",
+      "color": "grey",
+      "material": "ash",
+      "style": [
+        "japandi",
+        "modern",
+        "scandinavian",
+        "industrial"
+      ],
+      "price": "574.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/side-0072",
+      "images": []
+    },
+    {
+      "sku": "DESK-0073",
+      "title": "Batumi Desk — Beige Teak",
+      "category": "desk",
+      "normalized_category": "desk",
+      "description": "Mid Century desk in beige teak. Part of the Batumi collection.",
+      "dimensions": "1566x654x758 mm",
+      "color": "beige",
+      "material": "teak",
+      "style": [
+        "mid_century",
+        "japandi"
+      ],
+      "price": "1 379.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/desk-0073",
+      "images": []
+    },
+    {
+      "sku": "DESK-0074",
+      "title": "Kutaisi Desk — Black Ash",
+      "category": "desk",
+      "normalized_category": "desk",
+      "description": "Japanese desk in black ash. Part of the Kutaisi collection.",
+      "dimensions": "1544x681x740 mm",
+      "color": "black",
+      "material": "ash",
+      "style": [
+        "japanese",
+        "japandi",
+        "scandinavian",
+        "industrial"
+      ],
+      "price": "1 264.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/desk-0074",
+      "images": []
+    },
+    {
+      "sku": "DESK-0075",
+      "title": "Aspen Desk — Walnut Steel",
+      "category": "desk",
+      "normalized_category": "desk",
+      "description": "Minimalist desk in walnut steel. Part of the Aspen collection.",
+      "dimensions": "1238x787x753 mm",
+      "color": "walnut",
+      "material": "steel",
+      "style": [
+        "minimalist",
+        "classic",
+        "contemporary",
+        "modern"
+      ],
+      "price": "1 224.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/desk-0075",
+      "images": []
+    },
+    {
+      "sku": "DESK-0076",
+      "title": "Nordic Desk — Charcoal Birch",
+      "category": "desk",
+      "normalized_category": "desk",
+      "description": "Minimalist desk in charcoal birch. Part of the Nordic collection.",
+      "dimensions": "1492x743x755 mm",
+      "color": "charcoal",
+      "material": "birch",
+      "style": [
+        "minimalist",
+        "scandinavian",
+        "industrial",
+        "japandi"
+      ],
+      "price": "1 374.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/desk-0076",
+      "images": []
+    },
+    {
+      "sku": "DESK-0077",
+      "title": "Atlas Desk — Off-White Walnut",
+      "category": "desk",
+      "normalized_category": "desk",
+      "description": "Classic desk in off-white walnut. Part of the Atlas collection.",
+      "dimensions": "1559x707x749 mm",
+      "color": "off-white",
+      "material": "walnut",
+      "style": [
+        "classic",
+        "minimalist",
+        "modern"
+      ],
+      "price": "1 854.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/desk-0077",
+      "images": []
+    },
+    {
+      "sku": "DESK-0078",
+      "title": "Vega Desk — Oak Pine",
+      "category": "desk",
+      "normalized_category": "desk",
+      "description": "Minimalist desk in oak pine. Part of the Vega collection.",
+      "dimensions": "1323x675x738 mm",
+      "color": "oak",
+      "material": "pine",
+      "style": [
+        "minimalist",
+        "scandinavian",
+        "bohemian"
+      ],
+      "price": "1 659.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/desk-0078",
+      "images": []
+    },
+    {
+      "sku": "CONS-0079",
+      "title": "Lumen Console Table — White Oak",
+      "category": "console",
+      "normalized_category": "console",
+      "description": "Japanese console table in white oak. Part of the Lumen collection.",
+      "dimensions": "1089x321x797 mm",
+      "color": "white",
+      "material": "oak",
+      "style": [
+        "japanese",
+        "minimalist",
+        "japandi",
+        "contemporary"
+      ],
+      "price": "619.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cons-0079",
+      "images": []
+    },
+    {
+      "sku": "CONS-0080",
+      "title": "Terra Console Table — White Steel",
+      "category": "console",
+      "normalized_category": "console",
+      "description": "Contemporary console table in white steel. Part of the Terra collection.",
+      "dimensions": "1239x352x850 mm",
+      "color": "white",
+      "material": "steel",
+      "style": [
+        "contemporary",
+        "minimalist",
+        "scandinavian"
+      ],
+      "price": "804.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cons-0080",
+      "images": []
+    },
+    {
+      "sku": "CONS-0081",
+      "title": "Onyx Console Table — White Pine",
+      "category": "console",
+      "normalized_category": "console",
+      "description": "Japanese console table in white pine. Part of the Onyx collection.",
+      "dimensions": "1193x334x835 mm",
+      "color": "white",
+      "material": "pine",
+      "style": [
+        "japanese",
+        "rustic",
+        "minimalist"
+      ],
+      "price": "634.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cons-0081",
+      "images": []
+    },
+    {
+      "sku": "CONS-0082",
+      "title": "Ivory Console Table — Beige Steel",
+      "category": "console",
+      "normalized_category": "console",
+      "description": "Modern console table in beige steel. Part of the Ivory collection.",
+      "dimensions": "1320x301x783 mm",
+      "color": "beige",
+      "material": "steel",
+      "style": [
+        "modern",
+        "minimalist"
+      ],
+      "price": "1 534.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cons-0082",
+      "images": []
+    },
+    {
+      "sku": "BED-0083",
+      "title": "Cascade Slatted Bed Frame — Green Linen",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Scandinavian bed frame in green linen. Slatted. Part of the Cascade collection.",
+      "dimensions": "1771x2083x901 mm",
+      "color": "green",
+      "material": "linen",
+      "style": [
+        "scandinavian",
+        "minimalist",
+        "rustic"
+      ],
+      "price": "2 034.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/bed-0083",
+      "images": []
+    },
+    {
+      "sku": "BED-0084",
+      "title": "Meridian Platform Bed Frame — Green Oak",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Bohemian bed frame in green oak. Platform. Part of the Meridian collection.",
+      "dimensions": "1613x2055x860 mm",
+      "color": "green",
+      "material": "oak",
+      "style": [
+        "bohemian",
+        "japandi",
+        "modern"
+      ],
+      "price": "1 164.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/bed-0084",
+      "images": []
+    },
+    {
+      "sku": "BED-0085",
+      "title": "Solace Slatted Bed Frame — Walnut Ash",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Mid Century bed frame in walnut ash. Slatted. Part of the Solace collection.",
+      "dimensions": "1835x2130x1051 mm",
+      "color": "walnut",
+      "material": "ash",
+      "style": [
+        "mid_century",
+        "scandinavian"
+      ],
+      "price": "4 539.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/bed-0085",
+      "images": []
+    },
+    {
+      "sku": "BED-0086",
+      "title": "Harbour Upholstered Bed Frame — Walnut Walnut",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Classic bed frame in walnut walnut. Upholstered. Part of the Harbour collection.",
+      "dimensions": "1658x2074x861 mm",
+      "color": "walnut",
+      "material": "walnut",
+      "style": [
+        "classic",
+        "mid_century"
+      ],
+      "price": "3 089.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/bed-0086",
+      "images": []
+    },
+    {
+      "sku": "BED-0087",
+      "title": "Linea Slatted Bed Frame — Beige Oak",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Scandinavian bed frame in beige oak. Slatted. Part of the Linea collection.",
+      "dimensions": "1627x2079x1187 mm",
+      "color": "beige",
+      "material": "oak",
+      "style": [
+        "scandinavian",
+        "japandi"
+      ],
+      "price": "3 554.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/bed-0087",
+      "images": []
+    },
+    {
+      "sku": "BED-0088",
+      "title": "Sable Platform Bed Frame — Grey Oak",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Contemporary bed frame in grey oak. Platform. Part of the Sable collection.",
+      "dimensions": "1643x2122x1109 mm",
+      "color": "grey",
+      "material": "oak",
+      "style": [
+        "contemporary",
+        "japandi",
+        "minimalist",
+        "modern"
+      ],
+      "price": "3 094.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/bed-0088",
+      "images": []
+    },
+    {
+      "sku": "BED-0089",
+      "title": "Marlow Platform Bed Frame — Off-White Velvet",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Luxury bed frame in off-white velvet. Platform. Part of the Marlow collection.",
+      "dimensions": "1737x2015x1044 mm",
+      "color": "off-white",
+      "material": "velvet",
+      "style": [
+        "luxury",
+        "minimalist"
+      ],
+      "price": "1 719.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/bed-0089",
+      "images": []
+    },
+    {
+      "sku": "BED-0090",
+      "title": "Oslo Storage Bed Frame — Grey Velvet",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Classic bed frame in grey velvet. Storage. Part of the Oslo collection.",
+      "dimensions": "1765x2031x1151 mm",
+      "color": "grey",
+      "material": "velvet",
+      "style": [
+        "classic",
+        "luxury",
+        "modern"
+      ],
+      "price": "709.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/bed-0090",
+      "images": []
+    },
+    {
+      "sku": "BED-0091",
+      "title": "Bergen Slatted Bed Frame — Oak Pine",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Scandinavian bed frame in oak pine. Slatted. Part of the Bergen collection.",
+      "dimensions": "1589x2071x969 mm",
+      "color": "oak",
+      "material": "pine",
+      "style": [
+        "scandinavian",
+        "japandi",
+        "rustic",
+        "bohemian"
+      ],
+      "price": "3 129.00",
+      "currency": "GEL",
+      "in_stock": false,
+      "url": "https://example.comforter.ge/p/bed-0091",
+      "images": []
+    },
+    {
+      "sku": "BED-0092",
+      "title": "Kyoto Platform Bed Frame — Oak Birch",
+      "category": "bed",
+      "normalized_category": "bed",
+      "description": "Scandinavian bed frame in oak birch. Platform. Part of the Kyoto collection.",
+      "dimensions": "1827x2117x1045 mm",
+      "color": "oak",
+      "material": "birch",
+      "style": [
+        "scandinavian",
+        "minimalist",
+        "japandi"
+      ],
+      "price": "954.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/bed-0092",
+      "images": []
+    },
+    {
+      "sku": "MATT-0093",
+      "title": "Nara Pocket-Spring Mattress — Off-White Cotton",
+      "category": "mattress",
+      "normalized_category": "mattress",
+      "description": "Contemporary mattress in off-white cotton. Pocket-Spring. Part of the Nara collection.",
+      "dimensions": "1577x2064x251 mm",
+      "color": "off-white",
+      "material": "cotton",
+      "style": [
+        "contemporary"
+      ],
+      "price": "1 309.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/matt-0093",
+      "images": []
+    },
+    {
+      "sku": "MATT-0094",
+      "title": "Aarhus Hybrid Mattress — Off-White Wool",
+      "category": "mattress",
+      "normalized_category": "mattress",
+      "description": "Contemporary mattress in off-white wool. Hybrid. Part of the Aarhus collection.",
+      "dimensions": "1652x1935x238 mm",
+      "color": "off-white",
+      "material": "wool",
+      "style": [
+        "contemporary"
+      ],
+      "price": "859.00",
+      "currency": "GEL",
+      "in_stock": false,
+      "url": "https://example.comforter.ge/p/matt-0094",
+      "images": []
+    },
+    {
+      "sku": "MATT-0095",
+      "title": "Malmo Memory-Foam Mattress — Off-White Cotton",
+      "category": "mattress",
+      "normalized_category": "mattress",
+      "description": "Contemporary mattress in off-white cotton. Memory-Foam. Part of the Malmo collection.",
+      "dimensions": "1404x1906x286 mm",
+      "color": "off-white",
+      "material": "cotton",
+      "style": [
+        "contemporary"
+      ],
+      "price": "1 929.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/matt-0095",
+      "images": []
+    },
+    {
+      "sku": "MATT-0096",
+      "title": "Verona Memory-Foam Mattress — Off-White Cotton",
+      "category": "mattress",
+      "normalized_category": "mattress",
+      "description": "Contemporary mattress in off-white cotton. Memory-Foam. Part of the Verona collection.",
+      "dimensions": "1565x2068x262 mm",
+      "color": "off-white",
+      "material": "cotton",
+      "style": [
+        "contemporary"
+      ],
+      "price": "1 779.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/matt-0096",
+      "images": []
+    },
+    {
+      "sku": "MATT-0097",
+      "title": "Siena Memory-Foam Mattress — Off-White Cotton",
+      "category": "mattress",
+      "normalized_category": "mattress",
+      "description": "Contemporary mattress in off-white cotton. Memory-Foam. Part of the Siena collection.",
+      "dimensions": "1683x2049x243 mm",
+      "color": "off-white",
+      "material": "cotton",
+      "style": [
+        "contemporary"
+      ],
+      "price": "2 574.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/matt-0097",
+      "images": []
+    },
+    {
+      "sku": "MATT-0098",
+      "title": "Lisbon Memory-Foam Mattress — White Cotton",
+      "category": "mattress",
+      "normalized_category": "mattress",
+      "description": "Modern mattress in white cotton. Memory-Foam. Part of the Lisbon collection.",
+      "dimensions": "1584x1966x298 mm",
+      "color": "white",
+      "material": "cotton",
+      "style": [
+        "modern",
+        "contemporary"
+      ],
+      "price": "1 869.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/matt-0098",
+      "images": []
+    },
+    {
+      "sku": "NIGH-0099",
+      "title": "Porto Nightstand — Tan Ash",
+      "category": "nightstand",
+      "normalized_category": "nightstand",
+      "description": "Contemporary nightstand in tan ash. Part of the Porto collection.",
+      "dimensions": "410x443x450 mm",
+      "color": "tan",
+      "material": "ash",
+      "style": [
+        "contemporary",
+        "scandinavian"
+      ],
+      "price": "484.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/nigh-0099",
+      "images": []
+    },
+    {
+      "sku": "NIGH-0100",
+      "title": "Vienna Nightstand — Walnut Pine",
+      "category": "nightstand",
+      "normalized_category": "nightstand",
+      "description": "Rustic nightstand in walnut pine. Part of the Vienna collection.",
+      "dimensions": "537x385x477 mm",
+      "color": "walnut",
+      "material": "pine",
+      "style": [
+        "rustic",
+        "modern",
+        "scandinavian"
+      ],
+      "price": "389.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/nigh-0100",
+      "images": []
+    },
+    {
+      "sku": "NIGH-0101",
+      "title": "Prague Nightstand — Tan Birch",
+      "category": "nightstand",
+      "normalized_category": "nightstand",
+      "description": "Japandi nightstand in tan birch. Part of the Prague collection.",
+      "dimensions": "483x373x615 mm",
+      "color": "tan",
+      "material": "birch",
+      "style": [
+        "japandi",
+        "scandinavian",
+        "mid_century"
+      ],
+      "price": "224.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/nigh-0101",
+      "images": []
+    },
+    {
+      "sku": "NIGH-0102",
+      "title": "Tbilisi Nightstand — Black Ash",
+      "category": "nightstand",
+      "normalized_category": "nightstand",
+      "description": "Modern nightstand in black ash. Part of the Tbilisi collection.",
+      "dimensions": "525x387x515 mm",
+      "color": "black",
+      "material": "ash",
+      "style": [
+        "modern",
+        "luxury",
+        "minimalist"
+      ],
+      "price": "689.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/nigh-0102",
+      "images": []
+    },
+    {
+      "sku": "NIGH-0103",
+      "title": "Batumi Nightstand — Off-White Mdf",
+      "category": "nightstand",
+      "normalized_category": "nightstand",
+      "description": "Minimalist nightstand in off-white mdf. Part of the Batumi collection.",
+      "dimensions": "458x369x590 mm",
+      "color": "off-white",
+      "material": "mdf",
+      "style": [
+        "minimalist",
+        "modern"
+      ],
+      "price": "769.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/nigh-0103",
+      "images": []
+    },
+    {
+      "sku": "NIGH-0104",
+      "title": "Kutaisi Nightstand — Oak Pine",
+      "category": "nightstand",
+      "normalized_category": "nightstand",
+      "description": "Japandi nightstand in oak pine. Part of the Kutaisi collection.",
+      "dimensions": "533x403x591 mm",
+      "color": "oak",
+      "material": "pine",
+      "style": [
+        "japandi",
+        "rustic",
+        "scandinavian"
+      ],
+      "price": "344.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/nigh-0104",
+      "images": []
+    },
+    {
+      "sku": "WARD-0105",
+      "title": "Aspen Hinged Wardrobe — Tan Mdf",
+      "category": "wardrobe",
+      "normalized_category": "wardrobe",
+      "description": "Bohemian wardrobe in tan mdf. Hinged. Part of the Aspen collection.",
+      "dimensions": "1864x561x2102 mm",
+      "color": "tan",
+      "material": "mdf",
+      "style": [
+        "bohemian",
+        "minimalist",
+        "modern"
+      ],
+      "price": "3 064.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/ward-0105",
+      "images": []
+    },
+    {
+      "sku": "WARD-0106",
+      "title": "Nordic Hinged Wardrobe — Tan Ash",
+      "category": "wardrobe",
+      "normalized_category": "wardrobe",
+      "description": "Scandinavian wardrobe in tan ash. Hinged. Part of the Nordic collection.",
+      "dimensions": "1245x644x2237 mm",
+      "color": "tan",
+      "material": "ash",
+      "style": [
+        "scandinavian",
+        "japandi",
+        "contemporary"
+      ],
+      "price": "3 304.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/ward-0106",
+      "images": []
+    },
+    {
+      "sku": "WARD-0107",
+      "title": "Atlas Open Wardrobe — Off-White Oak",
+      "category": "wardrobe",
+      "normalized_category": "wardrobe",
+      "description": "Minimalist wardrobe in off-white oak. Open. Part of the Atlas collection.",
+      "dimensions": "1364x557x2287 mm",
+      "color": "off-white",
+      "material": "oak",
+      "style": [
+        "minimalist",
+        "japandi",
+        "scandinavian",
+        "contemporary"
+      ],
+      "price": "3 269.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/ward-0107",
+      "images": []
+    },
+    {
+      "sku": "WARD-0108",
+      "title": "Vega Hinged Wardrobe — Oak Teak",
+      "category": "wardrobe",
+      "normalized_category": "wardrobe",
+      "description": "Minimalist wardrobe in oak teak. Hinged. Part of the Vega collection.",
+      "dimensions": "1293x585x2126 mm",
+      "color": "oak",
+      "material": "teak",
+      "style": [
+        "minimalist",
+        "japandi",
+        "mid_century",
+        "japanese"
+      ],
+      "price": "2 414.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/ward-0108",
+      "images": []
+    },
+    {
+      "sku": "WARD-0109",
+      "title": "Lumen Sliding-Door Wardrobe — Off-White Mdf",
+      "category": "wardrobe",
+      "normalized_category": "wardrobe",
+      "description": "Modern wardrobe in off-white mdf. Sliding-Door. Part of the Lumen collection.",
+      "dimensions": "2381x568x2254 mm",
+      "color": "off-white",
+      "material": "mdf",
+      "style": [
+        "modern",
+        "minimalist",
+        "scandinavian",
+        "japandi"
+      ],
+      "price": "759.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/ward-0109",
+      "images": []
+    },
+    {
+      "sku": "WARD-0110",
+      "title": "Terra Sliding-Door Wardrobe — Black Pine",
+      "category": "wardrobe",
+      "normalized_category": "wardrobe",
+      "description": "Scandinavian wardrobe in black pine. Sliding-Door. Part of the Terra collection.",
+      "dimensions": "1394x617x2333 mm",
+      "color": "black",
+      "material": "pine",
+      "style": [
+        "scandinavian",
+        "japanese",
+        "bohemian"
+      ],
+      "price": "639.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/ward-0110",
+      "images": []
+    },
+    {
+      "sku": "WARD-0111",
+      "title": "Onyx Sliding-Door Wardrobe — Oak Teak",
+      "category": "wardrobe",
+      "normalized_category": "wardrobe",
+      "description": "Japandi wardrobe in oak teak. Sliding-Door. Part of the Onyx collection.",
+      "dimensions": "1761x645x2251 mm",
+      "color": "oak",
+      "material": "teak",
+      "style": [
+        "japandi",
+        "scandinavian"
+      ],
+      "price": "874.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/ward-0111",
+      "images": []
+    },
+    {
+      "sku": "WARD-0112",
+      "title": "Ivory Hinged Wardrobe — Beige Walnut",
+      "category": "wardrobe",
+      "normalized_category": "wardrobe",
+      "description": "Contemporary wardrobe in beige walnut. Hinged. Part of the Ivory collection.",
+      "dimensions": "1728x578x2137 mm",
+      "color": "beige",
+      "material": "walnut",
+      "style": [
+        "contemporary",
+        "rustic",
+        "modern"
+      ],
+      "price": "879.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/ward-0112",
+      "images": []
+    },
+    {
+      "sku": "DRES-0113",
+      "title": "Cascade Dresser — Beige Pine",
+      "category": "dresser",
+      "normalized_category": "dresser",
+      "description": "Japandi dresser in beige pine. Part of the Cascade collection.",
+      "dimensions": "1381x450x894 mm",
+      "color": "beige",
+      "material": "pine",
+      "style": [
+        "japandi",
+        "scandinavian",
+        "rustic",
+        "bohemian"
+      ],
+      "price": "1 049.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dres-0113",
+      "images": []
+    },
+    {
+      "sku": "DRES-0114",
+      "title": "Meridian Dresser — White Ash",
+      "category": "dresser",
+      "normalized_category": "dresser",
+      "description": "Modern dresser in white ash. Part of the Meridian collection.",
+      "dimensions": "1327x447x820 mm",
+      "color": "white",
+      "material": "ash",
+      "style": [
+        "modern",
+        "japanese"
+      ],
+      "price": "1 714.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dres-0114",
+      "images": []
+    },
+    {
+      "sku": "DRES-0115",
+      "title": "Solace Dresser — Black Pine",
+      "category": "dresser",
+      "normalized_category": "dresser",
+      "description": "Japanese dresser in black pine. Part of the Solace collection.",
+      "dimensions": "1240x480x836 mm",
+      "color": "black",
+      "material": "pine",
+      "style": [
+        "japanese",
+        "scandinavian",
+        "rustic",
+        "luxury"
+      ],
+      "price": "444.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dres-0115",
+      "images": []
+    },
+    {
+      "sku": "DRES-0116",
+      "title": "Harbour Dresser — White Pine",
+      "category": "dresser",
+      "normalized_category": "dresser",
+      "description": "Modern dresser in white pine. Part of the Harbour collection.",
+      "dimensions": "987x417x833 mm",
+      "color": "white",
+      "material": "pine",
+      "style": [
+        "modern",
+        "japanese"
+      ],
+      "price": "1 564.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dres-0116",
+      "images": []
+    },
+    {
+      "sku": "DRES-0117",
+      "title": "Linea Dresser — White Walnut",
+      "category": "dresser",
+      "normalized_category": "dresser",
+      "description": "Minimalist dresser in white walnut. Part of the Linea collection.",
+      "dimensions": "903x494x753 mm",
+      "color": "white",
+      "material": "walnut",
+      "style": [
+        "minimalist",
+        "luxury"
+      ],
+      "price": "924.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/dres-0117",
+      "images": []
+    },
+    {
+      "sku": "SHEL-0118",
+      "title": "Sable Shelving Unit — White Ash",
+      "category": "shelving",
+      "normalized_category": "shelving",
+      "description": "Japandi shelving unit in white ash. Part of the Sable collection.",
+      "dimensions": "1072x355x1833 mm",
+      "color": "white",
+      "material": "ash",
+      "style": [
+        "japandi",
+        "scandinavian",
+        "japanese",
+        "modern"
+      ],
+      "price": "889.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/shel-0118",
+      "images": []
+    },
+    {
+      "sku": "SHEL-0119",
+      "title": "Marlow Shelving Unit — Black Mdf",
+      "category": "shelving",
+      "normalized_category": "shelving",
+      "description": "Luxury shelving unit in black mdf. Part of the Marlow collection.",
+      "dimensions": "733x371x1851 mm",
+      "color": "black",
+      "material": "mdf",
+      "style": [
+        "luxury",
+        "minimalist",
+        "industrial"
+      ],
+      "price": "1 189.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/shel-0119",
+      "images": []
+    },
+    {
+      "sku": "SHEL-0120",
+      "title": "Oslo Shelving Unit — Charcoal Steel",
+      "category": "shelving",
+      "normalized_category": "shelving",
+      "description": "Industrial shelving unit in charcoal steel. Part of the Oslo collection.",
+      "dimensions": "1000x383x1699 mm",
+      "color": "charcoal",
+      "material": "steel",
+      "style": [
+        "industrial",
+        "minimalist",
+        "japandi",
+        "modern"
+      ],
+      "price": "1 469.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/shel-0120",
+      "images": []
+    },
+    {
+      "sku": "SHEL-0121",
+      "title": "Bergen Shelving Unit — Oak Birch",
+      "category": "shelving",
+      "normalized_category": "shelving",
+      "description": "Japandi shelving unit in oak birch. Part of the Bergen collection.",
+      "dimensions": "781x331x1558 mm",
+      "color": "oak",
+      "material": "birch",
+      "style": [
+        "japandi",
+        "scandinavian"
+      ],
+      "price": "369.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/shel-0121",
+      "images": []
+    },
+    {
+      "sku": "SHEL-0122",
+      "title": "Kyoto Shelving Unit — White Ash",
+      "category": "shelving",
+      "normalized_category": "shelving",
+      "description": "Minimalist shelving unit in white ash. Part of the Kyoto collection.",
+      "dimensions": "839x385x2060 mm",
+      "color": "white",
+      "material": "ash",
+      "style": [
+        "minimalist",
+        "modern",
+        "scandinavian",
+        "japandi"
+      ],
+      "price": "754.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/shel-0122",
+      "images": []
+    },
+    {
+      "sku": "SHEL-0123",
+      "title": "Nara Shelving Unit — Black Ash",
+      "category": "shelving",
+      "normalized_category": "shelving",
+      "description": "Japandi shelving unit in black ash. Part of the Nara collection.",
+      "dimensions": "782x399x1567 mm",
+      "color": "black",
+      "material": "ash",
+      "style": [
+        "japandi",
+        "modern",
+        "minimalist"
+      ],
+      "price": "1 189.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/shel-0123",
+      "images": []
+    },
+    {
+      "sku": "TV_U-0124",
+      "title": "Aarhus TV Unit — Black Walnut",
+      "category": "tv unit",
+      "normalized_category": "tv_unit",
+      "description": "Mid Century tv unit in black walnut. Part of the Aarhus collection.",
+      "dimensions": "1328x362x471 mm",
+      "color": "black",
+      "material": "walnut",
+      "style": [
+        "mid_century",
+        "luxury"
+      ],
+      "price": "609.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/tv_u-0124",
+      "images": []
+    },
+    {
+      "sku": "TV_U-0125",
+      "title": "Malmo TV Unit — Walnut Oak",
+      "category": "tv unit",
+      "normalized_category": "tv_unit",
+      "description": "Contemporary tv unit in walnut oak. Part of the Malmo collection.",
+      "dimensions": "1336x449x447 mm",
+      "color": "walnut",
+      "material": "oak",
+      "style": [
+        "contemporary",
+        "minimalist",
+        "japandi",
+        "modern"
+      ],
+      "price": "434.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/tv_u-0125",
+      "images": []
+    },
+    {
+      "sku": "TV_U-0126",
+      "title": "Verona TV Unit — Tan Ash",
+      "category": "tv unit",
+      "normalized_category": "tv_unit",
+      "description": "Bohemian tv unit in tan ash. Part of the Verona collection.",
+      "dimensions": "1480x374x516 mm",
+      "color": "tan",
+      "material": "ash",
+      "style": [
+        "bohemian",
+        "minimalist",
+        "scandinavian",
+        "mid_century"
+      ],
+      "price": "1 124.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/tv_u-0126",
+      "images": []
+    },
+    {
+      "sku": "TV_U-0127",
+      "title": "Siena TV Unit — Tan Oak",
+      "category": "tv unit",
+      "normalized_category": "tv_unit",
+      "description": "Contemporary tv unit in tan oak. Part of the Siena collection.",
+      "dimensions": "1666x365x411 mm",
+      "color": "tan",
+      "material": "oak",
+      "style": [
+        "contemporary",
+        "bohemian",
+        "mid_century",
+        "scandinavian"
+      ],
+      "price": "1 799.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/tv_u-0127",
+      "images": []
+    },
+    {
+      "sku": "TV_U-0128",
+      "title": "Lisbon TV Unit — Charcoal Walnut",
+      "category": "tv unit",
+      "normalized_category": "tv_unit",
+      "description": "Luxury tv unit in charcoal walnut. Part of the Lisbon collection.",
+      "dimensions": "1424x417x496 mm",
+      "color": "charcoal",
+      "material": "walnut",
+      "style": [
+        "luxury",
+        "industrial",
+        "japandi"
+      ],
+      "price": "719.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/tv_u-0128",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0129",
+      "title": "Porto Sideboard — Off-White Pine",
+      "category": "sideboard",
+      "normalized_category": "sideboard",
+      "description": "Bohemian sideboard in off-white pine. Part of the Porto collection.",
+      "dimensions": "1675x476x789 mm",
+      "color": "off-white",
+      "material": "pine",
+      "style": [
+        "bohemian",
+        "japandi",
+        "rustic"
+      ],
+      "price": "2 534.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/side-0129",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0130",
+      "title": "Vienna Sideboard — White Birch",
+      "category": "sideboard",
+      "normalized_category": "sideboard",
+      "description": "Modern sideboard in white birch. Part of the Vienna collection.",
+      "dimensions": "1410x473x790 mm",
+      "color": "white",
+      "material": "birch",
+      "style": [
+        "modern",
+        "japandi",
+        "minimalist"
+      ],
+      "price": "989.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/side-0130",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0131",
+      "title": "Prague Sideboard — Off-White Walnut",
+      "category": "sideboard",
+      "normalized_category": "sideboard",
+      "description": "Minimalist sideboard in off-white walnut. Part of the Prague collection.",
+      "dimensions": "1829x431x813 mm",
+      "color": "off-white",
+      "material": "walnut",
+      "style": [
+        "minimalist",
+        "japandi"
+      ],
+      "price": "674.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/side-0131",
+      "images": []
+    },
+    {
+      "sku": "SIDE-0132",
+      "title": "Tbilisi Sideboard — Tan Pine",
+      "category": "sideboard",
+      "normalized_category": "sideboard",
+      "description": "Mid Century sideboard in tan pine. Part of the Tbilisi collection.",
+      "dimensions": "1401x466x843 mm",
+      "color": "tan",
+      "material": "pine",
+      "style": [
+        "mid_century",
+        "scandinavian"
+      ],
+      "price": "974.00",
+      "currency": "GEL",
+      "in_stock": false,
+      "url": "https://example.comforter.ge/p/side-0132",
+      "images": []
+    },
+    {
+      "sku": "RUG-0133",
+      "title": "Batumi Tufted Area Rug — White Jute",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Modern area rug in white jute. Tufted. Part of the Batumi collection.",
+      "dimensions": "2987x1534x18 mm",
+      "color": "white",
+      "material": "jute",
+      "style": [
+        "modern",
+        "scandinavian",
+        "rustic",
+        "japanese"
+      ],
+      "price": "2 124.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/rug-0133",
+      "images": []
+    },
+    {
+      "sku": "RUG-0134",
+      "title": "Kutaisi Shaggy Area Rug — Tan Jute",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Contemporary area rug in tan jute. Shaggy. Part of the Kutaisi collection.",
+      "dimensions": "2041x1736x11 mm",
+      "color": "tan",
+      "material": "jute",
+      "style": [
+        "contemporary",
+        "bohemian"
+      ],
+      "price": "1 564.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/rug-0134",
+      "images": []
+    },
+    {
+      "sku": "RUG-0135",
+      "title": "Aspen Shaggy Area Rug — Tan Jute",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Rustic area rug in tan jute. Shaggy. Part of the Aspen collection.",
+      "dimensions": "2067x1244x18 mm",
+      "color": "tan",
+      "material": "jute",
+      "style": [
+        "rustic",
+        "japandi",
+        "contemporary"
+      ],
+      "price": "1 724.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/rug-0135",
+      "images": []
+    },
+    {
+      "sku": "RUG-0136",
+      "title": "Nordic Shaggy Area Rug — Green Cotton",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Contemporary area rug in green cotton. Shaggy. Part of the Nordic collection.",
+      "dimensions": "2112x1535x22 mm",
+      "color": "green",
+      "material": "cotton",
+      "style": [
+        "contemporary",
+        "japandi"
+      ],
+      "price": "934.00",
+      "currency": "GEL",
+      "in_stock": false,
+      "url": "https://example.comforter.ge/p/rug-0136",
+      "images": []
+    },
+    {
+      "sku": "RUG-0137",
+      "title": "Atlas Tufted Area Rug — Beige Plastic",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Modern area rug in beige plastic. Tufted. Part of the Atlas collection.",
+      "dimensions": "2713x1773x20 mm",
+      "color": "beige",
+      "material": "plastic",
+      "style": [
+        "modern",
+        "contemporary",
+        "rustic",
+        "scandinavian"
+      ],
+      "price": "2 034.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/rug-0137",
+      "images": []
+    },
+    {
+      "sku": "RUG-0138",
+      "title": "Vega Shaggy Area Rug — Tan Cotton",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Contemporary area rug in tan cotton. Shaggy. Part of the Vega collection.",
+      "dimensions": "2565x1616x8 mm",
+      "color": "tan",
+      "material": "cotton",
+      "style": [
+        "contemporary",
+        "mid_century",
+        "scandinavian"
+      ],
+      "price": "1 834.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/rug-0138",
+      "images": []
+    },
+    {
+      "sku": "RUG-0139",
+      "title": "Lumen Hand-Woven Area Rug — White Plastic",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Scandinavian area rug in white plastic. Hand-Woven. Part of the Lumen collection.",
+      "dimensions": "2709x1614x24 mm",
+      "color": "white",
+      "material": "plastic",
+      "style": [
+        "scandinavian",
+        "minimalist",
+        "modern"
+      ],
+      "price": "1 164.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/rug-0139",
+      "images": []
+    },
+    {
+      "sku": "RUG-0140",
+      "title": "Terra Flat-Weave Area Rug — Charcoal Plastic",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Modern area rug in charcoal plastic. Flat-Weave. Part of the Terra collection.",
+      "dimensions": "2477x1502x18 mm",
+      "color": "charcoal",
+      "material": "plastic",
+      "style": [
+        "modern",
+        "industrial"
+      ],
+      "price": "1 419.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/rug-0140",
+      "images": []
+    },
+    {
+      "sku": "RUG-0141",
+      "title": "Onyx Flat-Weave Area Rug — Green Cotton",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Japandi area rug in green cotton. Flat-Weave. Part of the Onyx collection.",
+      "dimensions": "2216x1447x14 mm",
+      "color": "green",
+      "material": "cotton",
+      "style": [
+        "japandi",
+        "scandinavian",
+        "bohemian"
+      ],
+      "price": "1 204.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/rug-0141",
+      "images": []
+    },
+    {
+      "sku": "RUG-0142",
+      "title": "Ivory Tufted Area Rug — Beige Jute",
+      "category": "rug",
+      "normalized_category": "rug",
+      "description": "Japandi area rug in beige jute. Tufted. Part of the Ivory collection.",
+      "dimensions": "2594x1406x14 mm",
+      "color": "beige",
+      "material": "jute",
+      "style": [
+        "japandi",
+        "bohemian"
+      ],
+      "price": "744.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/rug-0142",
+      "images": []
+    },
+    {
+      "sku": "CURT-0143",
+      "title": "Cascade Eyelet Curtain Panel — Green Linen",
+      "category": "curtain",
+      "normalized_category": "curtain",
+      "description": "Rustic curtain panel in green linen. Eyelet. Part of the Cascade collection.",
+      "dimensions": "1406x36x2784 mm",
+      "color": "green",
+      "material": "linen",
+      "style": [
+        "rustic",
+        "minimalist",
+        "contemporary",
+        "luxury"
+      ],
+      "price": "504.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/curt-0143",
+      "images": []
+    },
+    {
+      "sku": "CURT-0144",
+      "title": "Meridian Lined Curtain Panel — Off-White Linen",
+      "category": "curtain",
+      "normalized_category": "curtain",
+      "description": "Japandi curtain panel in off-white linen. Lined. Part of the Meridian collection.",
+      "dimensions": "1331x49x2607 mm",
+      "color": "off-white",
+      "material": "linen",
+      "style": [
+        "japandi",
+        "scandinavian"
+      ],
+      "price": "424.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/curt-0144",
+      "images": []
+    },
+    {
+      "sku": "CURT-0145",
+      "title": "Solace Sheer Curtain Panel — Blue Cotton",
+      "category": "curtain",
+      "normalized_category": "curtain",
+      "description": "Scandinavian curtain panel in blue cotton. Sheer. Part of the Solace collection.",
+      "dimensions": "1508x50x2651 mm",
+      "color": "blue",
+      "material": "cotton",
+      "style": [
+        "scandinavian",
+        "contemporary",
+        "classic",
+        "bohemian"
+      ],
+      "price": "619.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/curt-0145",
+      "images": []
+    },
+    {
+      "sku": "CURT-0146",
+      "title": "Harbour Sheer Curtain Panel — Charcoal Linen",
+      "category": "curtain",
+      "normalized_category": "curtain",
+      "description": "Industrial curtain panel in charcoal linen. Sheer. Part of the Harbour collection.",
+      "dimensions": "1479x31x2742 mm",
+      "color": "charcoal",
+      "material": "linen",
+      "style": [
+        "industrial",
+        "contemporary",
+        "rustic"
+      ],
+      "price": "689.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/curt-0146",
+      "images": []
+    },
+    {
+      "sku": "CURT-0147",
+      "title": "Linea Lined Curtain Panel — Off-White Cotton",
+      "category": "curtain",
+      "normalized_category": "curtain",
+      "description": "Minimalist curtain panel in off-white cotton. Lined. Part of the Linea collection.",
+      "dimensions": "1405x46x2785 mm",
+      "color": "off-white",
+      "material": "cotton",
+      "style": [
+        "minimalist",
+        "bohemian"
+      ],
+      "price": "324.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/curt-0147",
+      "images": []
+    },
+    {
+      "sku": "CURT-0148",
+      "title": "Sable Sheer Curtain Panel — Off-White Linen",
+      "category": "curtain",
+      "normalized_category": "curtain",
+      "description": "Japandi curtain panel in off-white linen. Sheer. Part of the Sable collection.",
+      "dimensions": "1594x56x2554 mm",
+      "color": "off-white",
+      "material": "linen",
+      "style": [
+        "japandi",
+        "minimalist",
+        "rustic"
+      ],
+      "price": "219.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/curt-0148",
+      "images": []
+    },
+    {
+      "sku": "CURT-0149",
+      "title": "Marlow Lined Curtain Panel — Charcoal Velvet",
+      "category": "curtain",
+      "normalized_category": "curtain",
+      "description": "Japandi curtain panel in charcoal velvet. Lined. Part of the Marlow collection.",
+      "dimensions": "1493x37x2633 mm",
+      "color": "charcoal",
+      "material": "velvet",
+      "style": [
+        "japandi",
+        "luxury",
+        "minimalist"
+      ],
+      "price": "744.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/curt-0149",
+      "images": []
+    },
+    {
+      "sku": "CURT-0150",
+      "title": "Oslo Blackout Curtain Panel — Green Cotton",
+      "category": "curtain",
+      "normalized_category": "curtain",
+      "description": "Luxury curtain panel in green cotton. Blackout. Part of the Oslo collection.",
+      "dimensions": "1392x46x2549 mm",
+      "color": "green",
+      "material": "cotton",
+      "style": [
+        "luxury",
+        "bohemian",
+        "scandinavian"
+      ],
+      "price": "354.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/curt-0150",
+      "images": []
+    },
+    {
+      "sku": "CUSH-0151",
+      "title": "Bergen Cushion — Terracotta Velvet",
+      "category": "cushion",
+      "normalized_category": "cushion",
+      "description": "Mid Century cushion in terracotta velvet. Part of the Bergen collection.",
+      "dimensions": "509x125x454 mm",
+      "color": "terracotta",
+      "material": "velvet",
+      "style": [
+        "mid_century",
+        "contemporary",
+        "classic"
+      ],
+      "price": "209.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cush-0151",
+      "images": []
+    },
+    {
+      "sku": "CUSH-0152",
+      "title": "Kyoto Cushion — Beige Linen",
+      "category": "cushion",
+      "normalized_category": "cushion",
+      "description": "Scandinavian cushion in beige linen. Part of the Kyoto collection.",
+      "dimensions": "405x177x417 mm",
+      "color": "beige",
+      "material": "linen",
+      "style": [
+        "scandinavian",
+        "minimalist",
+        "rustic"
+      ],
+      "price": "209.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cush-0152",
+      "images": []
+    },
+    {
+      "sku": "CUSH-0153",
+      "title": "Nara Cushion — Tan Linen",
+      "category": "cushion",
+      "normalized_category": "cushion",
+      "description": "Contemporary cushion in tan linen. Part of the Nara collection.",
+      "dimensions": "519x146x480 mm",
+      "color": "tan",
+      "material": "linen",
+      "style": [
+        "contemporary",
+        "bohemian",
+        "japandi"
+      ],
+      "price": "129.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cush-0153",
+      "images": []
+    },
+    {
+      "sku": "CUSH-0154",
+      "title": "Aarhus Cushion — Beige Linen",
+      "category": "cushion",
+      "normalized_category": "cushion",
+      "description": "Japandi cushion in beige linen. Part of the Aarhus collection.",
+      "dimensions": "449x144x436 mm",
+      "color": "beige",
+      "material": "linen",
+      "style": [
+        "japandi",
+        "scandinavian",
+        "minimalist",
+        "rustic"
+      ],
+      "price": "219.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cush-0154",
+      "images": []
+    },
+    {
+      "sku": "CUSH-0155",
+      "title": "Malmo Cushion — Brown Cotton",
+      "category": "cushion",
+      "normalized_category": "cushion",
+      "description": "Mid Century cushion in brown cotton. Part of the Malmo collection.",
+      "dimensions": "544x164x490 mm",
+      "color": "brown",
+      "material": "cotton",
+      "style": [
+        "mid_century",
+        "scandinavian",
+        "classic",
+        "bohemian"
+      ],
+      "price": "169.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cush-0155",
+      "images": []
+    },
+    {
+      "sku": "CUSH-0156",
+      "title": "Verona Cushion — Olive Boucle",
+      "category": "cushion",
+      "normalized_category": "cushion",
+      "description": "Minimalist cushion in olive boucle. Part of the Verona collection.",
+      "dimensions": "412x164x440 mm",
+      "color": "olive",
+      "material": "boucle",
+      "style": [
+        "minimalist",
+        "contemporary",
+        "modern",
+        "japandi"
+      ],
+      "price": "70.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cush-0156",
+      "images": []
+    },
+    {
+      "sku": "CUSH-0157",
+      "title": "Siena Cushion — Beige Cotton",
+      "category": "cushion",
+      "normalized_category": "cushion",
+      "description": "Contemporary cushion in beige cotton. Part of the Siena collection.",
+      "dimensions": "519x154x464 mm",
+      "color": "beige",
+      "material": "cotton",
+      "style": [
+        "contemporary",
+        "scandinavian"
+      ],
+      "price": "139.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cush-0157",
+      "images": []
+    },
+    {
+      "sku": "CUSH-0158",
+      "title": "Lisbon Cushion — Beige Wool",
+      "category": "cushion",
+      "normalized_category": "cushion",
+      "description": "Rustic cushion in beige wool. Part of the Lisbon collection.",
+      "dimensions": "434x123x541 mm",
+      "color": "beige",
+      "material": "wool",
+      "style": [
+        "rustic",
+        "japandi",
+        "scandinavian",
+        "contemporary"
+      ],
+      "price": "164.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/cush-0158",
+      "images": []
+    },
+    {
+      "sku": "THRO-0159",
+      "title": "Porto Throw Blanket — Tan Wool",
+      "category": "throw",
+      "normalized_category": "throw",
+      "description": "Bohemian throw blanket in tan wool. Part of the Porto collection.",
+      "dimensions": "1239x39x1736 mm",
+      "color": "tan",
+      "material": "wool",
+      "style": [
+        "bohemian",
+        "contemporary"
+      ],
+      "price": "404.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/thro-0159",
+      "images": []
+    },
+    {
+      "sku": "THRO-0160",
+      "title": "Vienna Throw Blanket — Mustard Wool",
+      "category": "throw",
+      "normalized_category": "throw",
+      "description": "Bohemian throw blanket in mustard wool. Part of the Vienna collection.",
+      "dimensions": "1330x40x1690 mm",
+      "color": "mustard",
+      "material": "wool",
+      "style": [
+        "bohemian",
+        "scandinavian",
+        "mid_century",
+        "contemporary"
+      ],
+      "price": "154.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/thro-0160",
+      "images": []
+    },
+    {
+      "sku": "THRO-0161",
+      "title": "Prague Throw Blanket — Beige Wool",
+      "category": "throw",
+      "normalized_category": "throw",
+      "description": "Rustic throw blanket in beige wool. Part of the Prague collection.",
+      "dimensions": "1426x40x1783 mm",
+      "color": "beige",
+      "material": "wool",
+      "style": [
+        "rustic",
+        "scandinavian"
+      ],
+      "price": "99.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/thro-0161",
+      "images": []
+    },
+    {
+      "sku": "THRO-0162",
+      "title": "Tbilisi Throw Blanket — Tan Wool",
+      "category": "throw",
+      "normalized_category": "throw",
+      "description": "Contemporary throw blanket in tan wool. Part of the Tbilisi collection.",
+      "dimensions": "1242x39x1748 mm",
+      "color": "tan",
+      "material": "wool",
+      "style": [
+        "contemporary",
+        "rustic"
+      ],
+      "price": "169.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/thro-0162",
+      "images": []
+    },
+    {
+      "sku": "THRO-0163",
+      "title": "Batumi Throw Blanket — Tan Wool",
+      "category": "throw",
+      "normalized_category": "throw",
+      "description": "Mid Century throw blanket in tan wool. Part of the Batumi collection.",
+      "dimensions": "1407x57x1643 mm",
+      "color": "tan",
+      "material": "wool",
+      "style": [
+        "mid_century",
+        "scandinavian",
+        "contemporary",
+        "rustic"
+      ],
+      "price": "354.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/thro-0163",
+      "images": []
+    },
+    {
+      "sku": "ARTW-0164",
+      "title": "Kutaisi Framed Print — Off-White Oak",
+      "category": "artwork",
+      "normalized_category": "artwork",
+      "description": "Scandinavian framed print in off-white oak. Part of the Kutaisi collection.",
+      "dimensions": "615x40x890 mm",
+      "color": "off-white",
+      "material": "oak",
+      "style": [
+        "scandinavian",
+        "japandi",
+        "modern"
+      ],
+      "price": "449.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/artw-0164",
+      "images": []
+    },
+    {
+      "sku": "ARTW-0165",
+      "title": "Aspen Framed Print — White Glass",
+      "category": "artwork",
+      "normalized_category": "artwork",
+      "description": "Contemporary framed print in white glass. Part of the Aspen collection.",
+      "dimensions": "620x29x838 mm",
+      "color": "white",
+      "material": "glass",
+      "style": [
+        "contemporary",
+        "modern"
+      ],
+      "price": "394.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/artw-0165",
+      "images": []
+    },
+    {
+      "sku": "ARTW-0166",
+      "title": "Nordic Framed Print — White Glass",
+      "category": "artwork",
+      "normalized_category": "artwork",
+      "description": "Scandinavian framed print in white glass. Part of the Nordic collection.",
+      "dimensions": "646x31x1028 mm",
+      "color": "white",
+      "material": "glass",
+      "style": [
+        "scandinavian",
+        "luxury"
+      ],
+      "price": "419.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/artw-0166",
+      "images": []
+    },
+    {
+      "sku": "ARTW-0167",
+      "title": "Atlas Framed Print — White Aluminium",
+      "category": "artwork",
+      "normalized_category": "artwork",
+      "description": "Japanese framed print in white aluminium. Part of the Atlas collection.",
+      "dimensions": "524x30x538 mm",
+      "color": "white",
+      "material": "aluminium",
+      "style": [
+        "japanese",
+        "minimalist",
+        "modern"
+      ],
+      "price": "414.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/artw-0167",
+      "images": []
+    },
+    {
+      "sku": "ARTW-0168",
+      "title": "Vega Framed Print — Tan Aluminium",
+      "category": "artwork",
+      "normalized_category": "artwork",
+      "description": "Bohemian framed print in tan aluminium. Part of the Vega collection.",
+      "dimensions": "685x45x750 mm",
+      "color": "tan",
+      "material": "aluminium",
+      "style": [
+        "bohemian",
+        "modern"
+      ],
+      "price": "644.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/artw-0168",
+      "images": []
+    },
+    {
+      "sku": "ARTW-0169",
+      "title": "Lumen Framed Print — Grey Oak",
+      "category": "artwork",
+      "normalized_category": "artwork",
+      "description": "Modern framed print in grey oak. Part of the Lumen collection.",
+      "dimensions": "460x27x979 mm",
+      "color": "grey",
+      "material": "oak",
+      "style": [
+        "modern",
+        "scandinavian",
+        "minimalist"
+      ],
+      "price": "594.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/artw-0169",
+      "images": []
+    },
+    {
+      "sku": "MIRR-0170",
+      "title": "Terra Wall Mirror — Black Glass",
+      "category": "mirror",
+      "normalized_category": "mirror",
+      "description": "Luxury wall mirror in black glass. Part of the Terra collection.",
+      "dimensions": "565x32x710 mm",
+      "color": "black",
+      "material": "glass",
+      "style": [
+        "luxury",
+        "contemporary",
+        "modern"
+      ],
+      "price": "804.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/mirr-0170",
+      "images": []
+    },
+    {
+      "sku": "MIRR-0171",
+      "title": "Onyx Wall Mirror — Gold Oak",
+      "category": "mirror",
+      "normalized_category": "mirror",
+      "description": "Scandinavian wall mirror in gold oak. Part of the Onyx collection.",
+      "dimensions": "842x39x822 mm",
+      "color": "gold",
+      "material": "oak",
+      "style": [
+        "scandinavian",
+        "japandi",
+        "modern",
+        "minimalist"
+      ],
+      "price": "1 039.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/mirr-0171",
+      "images": []
+    },
+    {
+      "sku": "MIRR-0172",
+      "title": "Ivory Wall Mirror — Black Brass",
+      "category": "mirror",
+      "normalized_category": "mirror",
+      "description": "Minimalist wall mirror in black brass. Part of the Ivory collection.",
+      "dimensions": "607x46x1135 mm",
+      "color": "black",
+      "material": "brass",
+      "style": [
+        "minimalist",
+        "modern",
+        "industrial",
+        "classic"
+      ],
+      "price": "694.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/mirr-0172",
+      "images": []
+    },
+    {
+      "sku": "MIRR-0173",
+      "title": "Cascade Wall Mirror — Tan Glass",
+      "category": "mirror",
+      "normalized_category": "mirror",
+      "description": "Mid Century wall mirror in tan glass. Part of the Cascade collection.",
+      "dimensions": "603x34x782 mm",
+      "color": "tan",
+      "material": "glass",
+      "style": [
+        "mid_century",
+        "modern",
+        "luxury"
+      ],
+      "price": "269.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/mirr-0173",
+      "images": []
+    },
+    {
+      "sku": "MIRR-0174",
+      "title": "Meridian Wall Mirror — Charcoal Brass",
+      "category": "mirror",
+      "normalized_category": "mirror",
+      "description": "Japandi wall mirror in charcoal brass. Part of the Meridian collection.",
+      "dimensions": "454x43x942 mm",
+      "color": "charcoal",
+      "material": "brass",
+      "style": [
+        "japandi",
+        "classic",
+        "industrial"
+      ],
+      "price": "814.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/mirr-0174",
+      "images": []
+    },
+    {
+      "sku": "PLAN-0175",
+      "title": "Solace Rubber Potted Plant — Green Ceramic",
+      "category": "plant",
+      "normalized_category": "plant",
+      "description": "Bohemian potted plant in green ceramic. Rubber. Part of the Solace collection.",
+      "dimensions": "568x532x1352 mm",
+      "color": "green",
+      "material": "ceramic",
+      "style": [
+        "bohemian",
+        "japandi",
+        "luxury",
+        "japanese"
+      ],
+      "price": "289.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/plan-0175",
+      "images": []
+    },
+    {
+      "sku": "PLAN-0176",
+      "title": "Harbour Rubber Potted Plant — Green Ceramic",
+      "category": "plant",
+      "normalized_category": "plant",
+      "description": "Japanese potted plant in green ceramic. Rubber. Part of the Harbour collection.",
+      "dimensions": "335x481x1257 mm",
+      "color": "green",
+      "material": "ceramic",
+      "style": [
+        "japanese",
+        "luxury",
+        "contemporary",
+        "rustic"
+      ],
+      "price": "359.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/plan-0176",
+      "images": []
+    },
+    {
+      "sku": "PLAN-0177",
+      "title": "Linea Fiddle-Leaf Potted Plant — Green Jute",
+      "category": "plant",
+      "normalized_category": "plant",
+      "description": "Rustic potted plant in green jute. Fiddle-Leaf. Part of the Linea collection.",
+      "dimensions": "575x498x631 mm",
+      "color": "green",
+      "material": "jute",
+      "style": [
+        "rustic",
+        "luxury",
+        "contemporary"
+      ],
+      "price": "244.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/plan-0177",
+      "images": []
+    },
+    {
+      "sku": "PLAN-0178",
+      "title": "Sable Rubber Potted Plant — Green Terracotta",
+      "category": "plant",
+      "normalized_category": "plant",
+      "description": "Contemporary potted plant in green terracotta. Rubber. Part of the Sable collection.",
+      "dimensions": "408x410x1313 mm",
+      "color": "green",
+      "material": "terracotta",
+      "style": [
+        "contemporary",
+        "japandi",
+        "luxury"
+      ],
+      "price": "379.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/plan-0178",
+      "images": []
+    },
+    {
+      "sku": "PLAN-0179",
+      "title": "Marlow Monstera Potted Plant — Green Jute",
+      "category": "plant",
+      "normalized_category": "plant",
+      "description": "Bohemian potted plant in green jute. Monstera. Part of the Marlow collection.",
+      "dimensions": "324x450x1517 mm",
+      "color": "green",
+      "material": "jute",
+      "style": [
+        "bohemian",
+        "luxury",
+        "contemporary"
+      ],
+      "price": "354.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/plan-0179",
+      "images": []
+    },
+    {
+      "sku": "DECO-0180",
+      "title": "Oslo Ceramic Vase — Beige Ceramic",
+      "category": "decor",
+      "normalized_category": "decor",
+      "description": "Contemporary ceramic vase in beige ceramic. Part of the Oslo collection.",
+      "dimensions": "235x187x203 mm",
+      "color": "beige",
+      "material": "ceramic",
+      "style": [
+        "contemporary",
+        "rustic",
+        "japanese",
+        "scandinavian"
+      ],
+      "price": "144.00",
+      "currency": "GEL",
+      "in_stock": false,
+      "url": "https://example.comforter.ge/p/deco-0180",
+      "images": []
+    },
+    {
+      "sku": "DECO-0181",
+      "title": "Bergen Ceramic Vase — Tan Glass",
+      "category": "decor",
+      "normalized_category": "decor",
+      "description": "Contemporary ceramic vase in tan glass. Part of the Bergen collection.",
+      "dimensions": "161x161x373 mm",
+      "color": "tan",
+      "material": "glass",
+      "style": [
+        "contemporary",
+        "minimalist"
+      ],
+      "price": "64.00",
+      "currency": "GEL",
+      "in_stock": false,
+      "url": "https://example.comforter.ge/p/deco-0181",
+      "images": []
+    },
+    {
+      "sku": "DECO-0182",
+      "title": "Kyoto Ceramic Vase — Terracotta Stone",
+      "category": "decor",
+      "normalized_category": "decor",
+      "description": "Japanese ceramic vase in terracotta stone. Part of the Kyoto collection.",
+      "dimensions": "267x256x342 mm",
+      "color": "terracotta",
+      "material": "stone",
+      "style": [
+        "japanese",
+        "rustic",
+        "industrial",
+        "bohemian"
+      ],
+      "price": "239.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/deco-0182",
+      "images": []
+    },
+    {
+      "sku": "DECO-0183",
+      "title": "Nara Ceramic Vase — Mustard Stone",
+      "category": "decor",
+      "normalized_category": "decor",
+      "description": "Rustic ceramic vase in mustard stone. Part of the Nara collection.",
+      "dimensions": "208x217x447 mm",
+      "color": "mustard",
+      "material": "stone",
+      "style": [
+        "rustic",
+        "japanese",
+        "bohemian"
+      ],
+      "price": "59.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/deco-0183",
+      "images": []
+    },
+    {
+      "sku": "DECO-0184",
+      "title": "Aarhus Ceramic Vase — Charcoal Glass",
+      "category": "decor",
+      "normalized_category": "decor",
+      "description": "Japandi ceramic vase in charcoal glass. Part of the Aarhus collection.",
+      "dimensions": "203x166x218 mm",
+      "color": "charcoal",
+      "material": "glass",
+      "style": [
+        "japandi",
+        "industrial",
+        "modern",
+        "contemporary"
+      ],
+      "price": "109.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/deco-0184",
+      "images": []
+    },
+    {
+      "sku": "DECO-0185",
+      "title": "Malmo Ceramic Vase — Tan Stone",
+      "category": "decor",
+      "normalized_category": "decor",
+      "description": "Contemporary ceramic vase in tan stone. Part of the Malmo collection.",
+      "dimensions": "194x143x409 mm",
+      "color": "tan",
+      "material": "stone",
+      "style": [
+        "contemporary",
+        "mid_century",
+        "bohemian"
+      ],
+      "price": "144.00",
+      "currency": "GEL",
+      "in_stock": true,
+      "url": "https://example.comforter.ge/p/deco-0185",
+      "images": []
+    }
+  ]
+}
