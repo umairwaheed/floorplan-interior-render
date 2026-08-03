@@ -121,6 +121,14 @@ This is strictly ≥ the old behaviour for the same spend, and it is the largest
 single lever found in this round, precisely because the generator is the noisy
 component.
 
+On the four-room production run it fired on **2 of 7 views** — both kept their
+first attempt over a third attempt the previous code would have shipped. That
+run scored 0.57 layout against 0.43 for the earlier one, but those are different
+seeds and therefore different scenes, so the run-level number is not a
+controlled comparison and is not claimed as one. What the mechanism guarantees
+is per-view and exact: `best` replaces `current` only when it scored higher, so
+those two views shipped strictly better images than they otherwise would have.
+
 ## Caveats
 
 - Three rooms, one style, one plan. Bathroom and living room at n = 6; balcony

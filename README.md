@@ -77,21 +77,26 @@ segmentation map projected from the frozen scene graph.
 **A single-room best case, and a four-room production run, differ a lot** —
 both are shown because only reporting the first would be misleading.
 
-| | single room, tuned | full 4-room run |
-|---|---|---|
-| Mean consistency | 0.82 | **0.69** |
-| Layout fidelity | 0.72 | **0.43** |
-| Object identity | 0.85 | **0.84** |
-| Cross-view consistency | 0.87 | — |
-| Worst view | — | **0.59** |
+| | single room, tuned | 4-room, earlier | 4-room, current |
+|---|---|---|---|
+| Mean consistency | 0.82 | 0.69 | **0.73** |
+| Layout fidelity | 0.72 | 0.43 | **0.57** |
+| Object identity | 0.85 | 0.84 | **0.83** |
+| Cross-view consistency | 0.87 | — | — |
+| Worst view | — | 0.59 | **0.58** |
 
 The 0.72 layout figure comes from one living-room scene during prompt
 iteration. Running the whole supplied floor plan — studio, bedroom, bathroom,
-balcony, seven views — gives **0.43**. Object identity holds up (0.84); layout
-does not generalize. Sparse rooms are the worst offenders: with few objects to
-anchor on, the model reinvents wall positions and adds fixtures. The judge
-listed a dozen invented items in the bathroom and balcony alone — taps,
-radiators, cisterns, a window.
+balcony, seven views — gives **0.57**. Object identity holds up (0.83); layout
+still does not fully generalize. Sparse rooms remain the worst offenders: with
+few objects to anchor on, the model reinvents wall positions and adds fixtures.
+
+**The two four-room columns are not a controlled A/B.** Different seeds, so
+different scenes, and per-view spread is sd ~ 0.18 — the 0.43 -> 0.57 gap is
+about two standard errors and partly luck. What *is* provable is narrower:
+best-of-N retention fired on 2 of the 7 views, and by construction those views
+shipped an image scoring strictly higher than the one the previous code would
+have returned. The direction is established; the run-level magnitude is not.
 
 The retry loop mostly does not rescue this. Across seven views it produced one
 genuine save (0.58 → 0.60 → 0.77) and otherwise wandered (0.62 → 0.72 → 0.64).
@@ -319,11 +324,11 @@ Stated plainly rather than implied:
 - **The catalog has no product photography.** Real product photos are the
   strongest signal for holding object identity across viewpoints; with a real
   catalog this pipeline would be measurably more consistent than it is here.
-- **Layout fidelity does not generalize.** 0.72 on a tuned single room, 0.43
-  across the four-room supplied plan. Sparse rooms are worst — with little to
-  anchor on, the model reinvents wall positions and invents fixtures (taps,
-  radiators, cisterns, a window). Object identity holds at 0.84, so the anchor
-  mechanism is doing its job; the geometry conditioning is what weakens.
+- **Layout fidelity does not fully generalize.** 0.72 on a tuned single room,
+  0.57 across the four-room supplied plan. Sparse rooms are worst — with little
+  to anchor on, the model reinvents wall positions and invents fixtures. Object
+  identity holds at 0.83, so the anchor mechanism is doing its job; the geometry
+  conditioning is what weakens.
 - **Generator variance is the binding constraint.** Same prompt, same camera,
   same scene, only the seed differing: layout fidelity ranges 0.30–0.82,
   sd ≈ 0.15–0.18 (n=6). Re-judging one unchanged image moves it by 0.04, so the
