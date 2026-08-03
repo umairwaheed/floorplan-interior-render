@@ -183,6 +183,28 @@ class RasterBuffers:
     preview: np.ndarray  # (H,W,3) uint8
     instance_ids: list[str] = field(default_factory=list)
 
+    def screen_boxes(self, min_pixels: int = 40) -> dict[str, tuple[int, int, int, int]]:
+        """instance_id → (x0, y0, x1, y1) as percentages of the frame.
+
+        The same projection as the images, expressed as numbers. Stating an
+        object's position both ways measurably improves how faithfully an image
+        model reproduces it — it grounds on the text where it drifts on the map.
+        """
+        boxes: dict[str, tuple[int, int, int, int]] = {}
+        height, width = self.instance.shape
+        for index, instance_id in enumerate(self.instance_ids):
+            mask = self.instance == index
+            if int(mask.sum()) < min_pixels:
+                continue
+            ys, xs = np.where(mask)
+            boxes[instance_id] = (
+                int(xs.min() * 100 // width),
+                int(ys.min() * 100 // height),
+                int(xs.max() * 100 // width),
+                int(ys.max() * 100 // height),
+            )
+        return boxes
+
     def visible_instances(self, min_pixels: int = 40) -> dict[str, int]:
         """instance_id → pixel count, for objects actually big enough to see."""
         counts: dict[str, int] = {}

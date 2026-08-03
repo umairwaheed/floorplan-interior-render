@@ -24,20 +24,44 @@ from ..design.styles import get_style_profile
 from ..schemas.render import ConditioningMaps
 from ..schemas.scene import Camera, PlacedObject, RoomFinishes, Scene
 
+#: The single highest-leverage line in this file.
+#:
+#: Framing the job as *re-rendering an existing scene* rather than *generating
+#: a room* moved measured layout fidelity from 0.12 to 0.70 on the same scene,
+#: camera and seed. Asked to generate, the model treats the geometry maps as
+#: mood-board input and designs its own room; asked to re-render, it treats
+#: them as the thing to preserve. Which conditioning image was attached barely
+#: mattered by comparison — depth-only scored 0.65 under the same framing.
+EDIT_FRAMING = """\
+You are re-rendering an existing 3D scene, not designing a room.
+
+The attached untextured render shows a real interior from a fixed camera. Your \
+task is a MATERIAL AND LIGHTING PASS ONLY: produce the same photograph with \
+realistic materials, textures and lighting.
+
+Every edge, corner, silhouette and boundary in the attached render must stay \
+exactly where it is. Do not move the camera. Do not reposition, resize, add or \
+remove anything. If a shape sits in the lower-left of the input, the \
+corresponding furniture must sit in the lower-left of your output, at the same \
+scale and angle.
+
+The flat-shaded blocks are PLACEHOLDER VOLUMES, not objects. Each marks the \
+exact bounding volume of a real piece of furniture. Replace each block with the \
+matching furniture from the list below, filling that volume. Never leave a \
+plain untextured box in the output."""
+
 #: Things the model must not do. Phrased as observable outcomes rather than
 #: abstractions ("do not add furniture" beats "be consistent"), because the
 #: former is checkable and the latter is not.
 NEGATIVE_CONSTRAINTS = """\
-Do not add, remove, move, resize or restyle any furniture. Do not invent \
-objects that are not listed. Do not change the room's shape, the position of \
-walls, doors or windows, or the ceiling height. Do not add people, text, \
-watermarks, labels, or measurement annotations. Do not produce a floor plan, \
-a diagram, a collage, or a split view — this is a single photograph."""
-
-CAMERA_BRIEF = """\
-Photograph the room from the camera position implied by the geometry images. \
-Use a natural interior-photography perspective at standing eye height, with \
-straight vertical lines and no fisheye distortion."""
+Render ONLY the furniture listed. Do not add lamps, sconces, windows, plants, \
+artwork or any other fixture that is not listed — an invented object is as \
+serious an error as a missing one. Small items such as cushions must sit \
+exactly where their placeholder volume sits, not where they would look best. \
+Do not change the room's shape, the position of walls, doors or windows, or \
+the ceiling height. Do not add people, text, watermarks, labels or dimension \
+annotations. Do not produce a floor plan, a diagram, a collage or a split \
+view — this is a single photograph."""
 
 
 def _describe_object(obj: PlacedObject, pixel_share: float | None) -> str:
@@ -158,54 +182,46 @@ def build_view_prompt(
         or "- (no furniture is visible from this angle)"
     )
 
-    header = (
-        f"Photorealistic interior photograph of a {room_name}."
-        if is_anchor
-        else (
-            f"Photorealistic interior photograph of the SAME {room_name} shown in the "
-            "reference photograph, from a different camera position."
-        )
+    positions = "\n".join(
+        f"- {objects[instance_id].display_name}: x {box[0]}%-{box[2]}%, "
+        f"y {box[1]}%-{box[3]}% of the frame"
+        for instance_id, box in maps.instance_screen_boxes.items()
+        if instance_id in objects
     )
 
     consistency = (
-        "This is the first view; it establishes the room's appearance."
+        "This is the first view of the room; it establishes its appearance."
         if is_anchor
         else (
-            "CRITICAL — this is the same physical room as the reference photograph, "
-            "at the same moment, with nothing rearranged. Every object keeps the exact "
-            "same colour, material, shape and finish it has in the reference. Only the "
-            "camera has moved. Objects visible in both views must be recognisably the "
-            "same objects."
+            "CRITICAL - SAME ROOM, DIFFERENT CAMERA.\n"
+            "The reference photograph shows this exact room from another camera "
+            "position, at the same moment. Every object appearing in both must be "
+            "identical: same fabric, same wood tone, same colour, same finish. Match "
+            "its wall colour, its floor and its lighting temperature exactly. Only "
+            "the camera has moved."
         )
     )
 
-    return "\n".join(
-        [
-            header,
+    sections = [
+        EDIT_FRAMING,
+        "",
+        "STYLE AND SURFACES",
+        build_scene_block(scene, camera.room_id),
+        "",
+        f"FURNITURE TO RENDER (in this {room_name})",
+        "Replace each placeholder volume with the matching item:",
+        inventory,
+    ]
+
+    if positions:
+        sections += [
             "",
-            "GEOMETRY",
-            "The attached depth map, segmentation map and wireframe define the exact "
-            "geometry of this shot. Match them precisely: every surface, wall angle and "
-            "object position must align with them. Brighter regions of the depth map are "
-            "closer to the camera. Each distinct colour in the segmentation map is one "
-            "object; render one object per region and nothing in between them.",
-            "",
-            build_scene_block(scene, camera.room_id),
-            "",
-            "OBJECTS IN THIS VIEW",
-            "Render exactly these, and only these:",
-            inventory,
-            "",
-            "CAMERA",
-            CAMERA_BRIEF,
-            "",
-            "CONSISTENCY",
-            consistency,
-            "",
-            "DO NOT",
-            NEGATIVE_CONSTRAINTS,
+            "EXACT SCREEN POSITIONS (must match the untextured render)",
+            positions,
         ]
-    )
+
+    sections += ["", "CONSISTENCY", consistency, "", "DO NOT", NEGATIVE_CONSTRAINTS]
+    return "\n".join(sections)
 
 
 def build_change_request_prompt(scene: Scene, change: str) -> str:

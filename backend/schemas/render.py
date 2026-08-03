@@ -32,6 +32,12 @@ class ConditioningMaps(BaseModel):
         description="instance_id → fraction of frame. Drives prompt emphasis and "
         "lets the judge ignore objects too small to assess.",
     )
+    instance_screen_boxes: dict[str, tuple[int, int, int, int]] = Field(
+        default_factory=dict,
+        description="instance_id → (x0, y0, x1, y1) as percentages of the frame. "
+        "Stating positions in text as well as pixels measurably improved layout "
+        "fidelity — the model grounds on the numbers where it drifts on the image.",
+    )
 
 
 class RenderStatus(str, Enum):

@@ -109,6 +109,7 @@ class SceneRenderer:
                 instance_id: round(count / total_pixels, 5)
                 for instance_id, count in visible.items()
             },
+            instance_screen_boxes=buffers.screen_boxes(),
         )
 
     def render_scene(

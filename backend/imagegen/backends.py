@@ -178,7 +178,17 @@ class GeminiImageBackend(ImageBackend):
 
         # Structure before appearance; the anchor view last so it reads as
         # "and make it look like this".
-        order = {"depth": 0, "segmentation": 1, "wireframe": 2, "product": 3, "anchor": 4}
+        # The untextured preview leads: it reads as "a room to re-render" where the
+        # abstract maps read as "a diagram to interpret". Anchor last, so it
+        # lands as "and make it look like this".
+        order = {
+            "preview_primary": 0,
+            "segmentation": 1,
+            "depth": 2,
+            "wireframe": 3,
+            "product": 4,
+            "anchor": 5,
+        }
         for reference in sorted(request.references, key=lambda r: order.get(r.role, 9)):
             if reference.role == "preview":
                 continue  # a debug aid, not a conditioning signal

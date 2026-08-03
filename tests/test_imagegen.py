@@ -199,11 +199,39 @@ def test_anchor_and_follow_up_prompts_differ_only_in_framing(scene, camera, tmp_
 
 
 def test_prompt_forbids_the_failure_modes_the_brief_names(scene, camera, tmp_path):
+    """Checked against the whole prompt: the prohibitions are split between the
+    edit framing (reposition/resize/add/remove) and the negative block
+    (inventing fixtures), and it is their combination that matters."""
     maps = _maps(tmp_path, ["r1:sofa#0"])
     prompt = build_view_prompt(scene, camera, maps, is_anchor=False)
     assert NEGATIVE_CONSTRAINTS in prompt
-    for forbidden in ("add", "remove", "move", "resize"):
-        assert forbidden in NEGATIVE_CONSTRAINTS
+    for forbidden in ("reposition", "resize", "add or remove", "invented object"):
+        assert forbidden in prompt, f"the prompt no longer forbids: {forbidden}"
+
+
+def test_prompt_frames_the_task_as_re_rendering_not_generating(scene, camera, tmp_path):
+    """The highest-leverage line in the system.
+
+    Measured on one scene, camera and seed: framing the job as re-rendering an
+    existing 3D scene rather than generating a room moved layout fidelity from
+    0.12 to 0.70. Asked to generate, the model treats the geometry as a mood
+    board; asked to re-render, it treats it as the thing to preserve.
+    """
+    maps = _maps(tmp_path, ["r1:sofa#0"])
+    prompt = build_view_prompt(scene, camera, maps, is_anchor=True)
+    assert "re-rendering an existing 3D scene" in prompt
+    assert "not designing a room" in prompt
+    assert "MATERIAL AND LIGHTING PASS ONLY" in prompt
+
+
+def test_prompt_states_screen_positions_as_text(scene, camera, tmp_path):
+    """Numbers alongside pixels — the model grounds on the text where it drifts
+    on the map."""
+    maps = _maps(tmp_path, ["r1:sofa#0"])
+    maps.instance_screen_boxes = {"r1:sofa#0": (10, 20, 60, 90)}
+    prompt = build_view_prompt(scene, camera, maps, is_anchor=True)
+    assert "EXACT SCREEN POSITIONS" in prompt
+    assert "x 10%-60%" in prompt
 
 
 def test_prompt_survives_a_view_with_nothing_visible(scene, camera, tmp_path):

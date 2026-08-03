@@ -80,27 +80,31 @@ class RenderService:
         pixels, and the model has to guess whether a depth map is a
         constraint or a picture of a room it should reproduce.
         """
+        # The untextured preview leads. Measured on one scene: leading with it
+        # under an edit framing put layout fidelity at 0.70 against 0.12 for the
+        # depth/segmentation-led generation framing. It reads as "a room to
+        # re-render" where the abstract maps read as "a diagram to interpret".
         references = [
             ReferenceImage(
-                path=Path(maps.depth_path),
-                role="depth",
+                path=Path(maps.preview_path or maps.depth_path),
+                role="preview_primary",
                 caption=(
-                    "DEPTH MAP — brighter is closer to the camera. This defines the exact "
-                    "3D layout of the shot; match it precisely."
+                    "UNTEXTURED 3D RENDER OF THIS EXACT SHOT — reproduce this composition "
+                    "precisely, replacing each placeholder volume with real furniture."
                 ),
             ),
             ReferenceImage(
                 path=Path(maps.segmentation_path),
                 role="segmentation",
                 caption=(
-                    "SEGMENTATION MAP — each distinct colour is one object. Render exactly "
-                    "one object per coloured region, in that region only."
+                    "SEGMENTATION MAP — each distinct colour is one object, same camera. "
+                    "Render exactly one object per coloured region, in that region only."
                 ),
             ),
             ReferenceImage(
-                path=Path(maps.wireframe_path),
-                role="wireframe",
-                caption="WIREFRAME — structural edges of the room and its contents.",
+                path=Path(maps.depth_path),
+                role="depth",
+                caption="DEPTH MAP — brighter is closer to the camera.",
             ),
         ]
 

@@ -73,7 +73,7 @@ Three consequences fall out of this design for free:
 make install      # Python 3.12 venv + dependencies
 make catalog      # build the product index (~288 seeded products)
 make run          # API + web UI on http://localhost:8000
-make test         # 178 tests
+make test         # 182 tests
 ```
 
 The catalog, retrieval, BOM, calibration and geometry layers are fully offline
@@ -115,6 +115,15 @@ coordinates is asking it to do arithmetic it isn't built for.
 **Renovation finishes are products too.** The brief says "every visible furniture
 *or renovation* element". Flooring, paint, tile and trim are bound to catalog
 products in the scene graph, not left as free-text prompt words.
+
+**Framing the render as a re-render, not a generation.** This is the single
+highest-leverage line in the system. Asked to *generate* a room from geometry
+maps, Gemini treats them as a mood board and designs its own layout — measured
+layout fidelity **0.12**. Asked to *re-render an existing 3D scene*, changing
+only materials and lighting, it treats them as the thing to preserve — **0.70**
+on the same scene, camera and seed. Which conditioning image is attached
+barely mattered by comparison; depth-only scored 0.65 under the same framing.
+Full numbers in [`docs/prompt-iteration.md`](docs/prompt-iteration.md).
 
 **The judge is a different model from a different provider than the generator.**
 Claude scores Gemini's images. A model grading its own output is a weak signal —
