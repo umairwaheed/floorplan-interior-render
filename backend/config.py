@@ -29,8 +29,13 @@ class Settings(BaseSettings):
     # Vision extraction and judging need reasoning over images; product
     # enrichment is bulk work where a cheap model is the right call.
     vision_model: str = "claude-opus-5"
-    enrichment_model: str = "claude-haiku-4-5-20251001"
+    enrichment_model: str = "claude-haiku-4-5"
     judge_model: str = "claude-opus-5"
+
+    # Opus 5 supports high-resolution vision (2576px long edge). Floor plans are
+    # dense line drawings, so resolution directly determines extraction quality.
+    max_plan_edge_px: int = 2200
+    plan_render_dpi: int = 300
     image_model: str = "gemini-3-pro-image-preview"
 
     anthropic_api_key: str | None = None

@@ -73,12 +73,13 @@ Three consequences fall out of this design for free:
 make install      # Python 3.12 venv + dependencies
 make catalog      # build the product index (~288 seeded products)
 make run          # API + web UI on http://localhost:8000
-make test         # 44 tests
+make test         # 83 tests
 ```
 
-No API keys are required to run what exists today. The catalog, retrieval and
-BOM layers are fully offline; image generation defaults to a mock backend that
-passes the geometry buffers through.
+The catalog, retrieval, BOM, calibration and geometry layers are fully offline
+and need no keys. **Floor plan extraction needs `ANTHROPIC_API_KEY`** — it is
+the one stage that calls a vision model. Image generation defaults to a mock
+backend that passes the geometry buffers through.
 
 ```bash
 cp .env.example .env    # then fill in keys when you want real renders
@@ -137,6 +138,11 @@ backend/
     index.py              SQLite + hybrid retrieval
     service.py            façade + bill of materials
     seed.py               deterministic demo catalog generator
+  ingest/
+    loader.py             PNG/JPG/PDF → normalized RGB (300 DPI, high-res)
+    extract.py            two-pass vision extraction (locate region → geometry)
+    calibrate.py          least-squares px→m solve against printed m² labels
+    service.py            pipeline + the single Y-flip into world coordinates
   design/styles.py        12 styles × 25 palettes
   api/                    FastAPI routers
 frontend/                 vanilla JS — no build step
@@ -184,8 +190,8 @@ here. The view-1 appearance anchor carries identity in the meantime.
 |---|---|
 | 0. Scaffold, schemas, config, scene graph | ✅ done |
 | 1. Catalog adapters, index, hybrid retrieval, BOM | ✅ done |
-| 2. Floor plan ingestion + m² scale calibration | ⬜ next |
-| 3. Design agent: selection + placement solver | ⬜ |
+| 2. Floor plan ingestion + m² scale calibration | ✅ done |
+| 3. Design agent: selection + placement solver | ⬜ next |
 | 4. Camera rig + numpy geometry rasterizer | ⬜ |
 | 5. Gemini image backend + multi-view prompting | ⬜ |
 | 6. VLM consistency judge + retry loop | ⬜ |
