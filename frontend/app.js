@@ -7,6 +7,7 @@ const state = {
   palette: null,
   jobId: null,
   renders: new Map(), // render id -> payload, so retries replace rather than duplicate
+  stopClock: null,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -75,7 +76,17 @@ function wireUpload() {
 async function upload(file) {
   const status = $("upload-status");
   status.className = "status busy";
-  status.textContent = `Reading ${file.name} and extracting rooms — this calls a vision model and takes a few seconds…`;
+  // Extraction is two vision calls and routinely takes 20-40 seconds. Static
+  // text over that long reads as a hung page, so this shows a spinner, names
+  // the stage, and counts elapsed seconds — the counter is what actually says
+  // "still alive" rather than "crashed".
+  const stopTimer = startBusy(status, `Reading ${escapeHtml(file.name)}`, [
+    "Rendering the page",
+    "Locating the drawing on the page",
+    "Extracting rooms, walls and openings",
+    "Calibrating scale from the printed m² labels",
+  ]);
+  $("dropzone").classList.add("busy");
 
   const form = new FormData();
   form.append("file", file);
@@ -86,15 +97,45 @@ async function upload(file) {
   try {
     const plan = await api("/floorplans", { method: "POST", body: form });
     state.floorplan = plan;
+    stopTimer();
     status.className = "status ok";
     status.textContent = `Extracted ${plan.rooms.length} room(s), ${plan.total_area_m2} m² total.`;
     renderPlanSummary(plan);
     $("step-style").classList.remove("hidden");
     loadStyles();
   } catch (err) {
+    stopTimer();
     status.className = "status err";
     status.textContent = err.message;
+  } finally {
+    $("dropzone").classList.remove("busy");
   }
+}
+
+/**
+ * Show a spinner, a rotating stage label and a live elapsed counter.
+ * Returns a function that stops it. `stages` are advanced on a timer purely
+ * to show the work is progressing — the server does not report sub-steps for
+ * extraction, and pretending otherwise would be inventing progress we don't
+ * have, so they read as "what it's doing", not "how far along".
+ */
+function startBusy(element, prefix, stages) {
+  const started = Date.now();
+  let stage = 0;
+
+  const tick = () => {
+    const seconds = Math.floor((Date.now() - started) / 1000);
+    if (seconds > 4 && seconds % 8 === 0 && stage < stages.length - 1) stage += 1;
+    element.className = "status busy";
+    element.innerHTML =
+      `<span class="spinner" aria-hidden="true"></span>` +
+      `<span>${prefix} — ${escapeHtml(stages[stage])}… ` +
+      `<span class="elapsed">${seconds}s</span></span>`;
+  };
+
+  tick();
+  const handle = setInterval(tick, 1000);
+  return () => clearInterval(handle);
 }
 
 function renderPlanSummary(plan) {
@@ -207,6 +248,10 @@ function updateCostNote() {
 
 async function generate() {
   $("generate").disabled = true;
+  $("generate").innerHTML = '<span class="spinner light" aria-hidden="true"></span>Generating…';
+  // Renders take ~25s each and retries can triple that, so the elapsed clock
+  // runs for the whole job, not just the upload.
+  state.stopClock = startClock();
   state.renders.clear();
   $("gallery").innerHTML = "";
   $("log").innerHTML = "";
@@ -233,7 +278,29 @@ async function generate() {
     streamJob(job_id);
   } catch (err) {
     log(`Failed to start: ${err.message}`, "err");
-    $("generate").disabled = false;
+    finishGenerating();
+  }
+}
+
+/** Elapsed clock beside the progress bar, so a long job never looks stalled. */
+function startClock() {
+  const started = Date.now();
+  const tick = () => {
+    const seconds = Math.floor((Date.now() - started) / 1000);
+    const label = seconds < 60 ? `${seconds}s` : `${Math.floor(seconds / 60)}m ${seconds % 60}s`;
+    $("elapsed").textContent = label;
+  };
+  tick();
+  const handle = setInterval(tick, 1000);
+  return () => clearInterval(handle);
+}
+
+function finishGenerating() {
+  $("generate").disabled = false;
+  $("generate").textContent = "Generate renders";
+  if (state.stopClock) {
+    state.stopClock();
+    state.stopClock = null;
   }
 }
 
@@ -243,7 +310,9 @@ function streamJob(jobId) {
   source.addEventListener("progress", (e) => {
     const ev = JSON.parse(e.data);
     $("bar").style.width = `${Math.round(ev.progress * 100)}%`;
-    $("progress-detail").textContent = ev.detail;
+    $("progress-detail").className = "status busy";
+    $("progress-detail").innerHTML =
+      `<span class="spinner" aria-hidden="true"></span><span>${escapeHtml(ev.detail)}</span>`;
     if (ev.status === "failed") log(ev.detail, "err");
     if (ev.render) {
       upsertRender(ev.render);
@@ -257,16 +326,19 @@ function streamJob(jobId) {
     source.close();
     const job = JSON.parse(e.data);
     $("bar").style.width = "100%";
+    $("progress-detail").className = job.error ? "status err" : "status ok";
     $("progress-detail").textContent = job.error ? `Failed: ${job.error}` : "Complete.";
-    $("generate").disabled = false;
+    finishGenerating();
     showResults(job);
   });
 
   source.onerror = () => {
     source.close();
+    $("progress-detail").className = "status warn";
+    $("progress-detail").textContent = "Progress stream lost — fetching the final result…";
     log("Connection to the progress stream was lost. Reloading the job…", "warn");
     api(`/designs/${jobId}`).then(showResults).catch(() => {});
-    $("generate").disabled = false;
+    finishGenerating();
   };
 }
 

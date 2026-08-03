@@ -99,7 +99,33 @@ input[type="number"] {
 }
 
 .status { margin: 1rem 0 0; font-size: 0.88rem; min-height: 1.2em; }
-.status.busy { color: var(--accent); }
+.status.busy { color: var(--accent); display: flex; align-items: center; gap: 0.5rem; }
+
+/* A spinner plus a live second count. The count is the part that actually
+   reads as "still working" over a 30-second wait — a spinner alone can look
+   like a frozen animation. */
+.spinner {
+  display: inline-block;  /* an inline span ignores width/height */
+  flex: none;
+  width: 14px; height: 14px;
+  border: 2px solid var(--accent-soft);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.spinner.light { border-color: rgba(255,255,255,0.35); border-top-color: #fff; margin-right: 0.5rem; vertical-align: -2px; display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation-duration: 2.4s; }
+}
+
+.elapsed {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.dropzone.busy { opacity: 0.55; pointer-events: none; }
 
 .plan-grid { display: grid; grid-template-columns: minmax(0, 240px) 1fr; gap: 1.5rem; margin-top: 1.25rem; align-items: start; }
 .plan-image { width: 100%; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
@@ -141,7 +167,8 @@ th { color: var(--muted); font-weight: 600; }
 .primary:disabled { opacity: 0.45; cursor: not-allowed; }
 
 /* --- progress --- */
-.progress { height: 6px; background: var(--accent-soft); border-radius: 3px; overflow: hidden; }
+.progress-row { display: flex; align-items: center; gap: 0.75rem; }
+.progress { flex: 1; height: 6px; background: var(--accent-soft); border-radius: 3px; overflow: hidden; }
 .bar { height: 100%; width: 0; background: var(--accent); transition: width 0.35s ease; }
 .log { list-style: none; margin: 1rem 0 0; padding: 0; max-height: 11rem; overflow-y: auto; font-size: 0.8rem; color: var(--muted); }
 .log li { padding: 0.15rem 0; border-bottom: 1px solid var(--border); }
