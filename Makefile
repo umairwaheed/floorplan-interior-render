@@ -1,7 +1,8 @@
+PYTHON ?= python3.12
 PY := .venv/bin/python
 PIP := .venv/bin/pip
 
-.PHONY: help venv install run test lint fmt clean catalog
+.PHONY: help venv install run test lint fmt clean catalog docker check
 
 help:
 	@echo "make install   Install dependencies into .venv"
@@ -10,9 +11,11 @@ help:
 	@echo "make test      Run tests"
 	@echo "make lint      Ruff check"
 	@echo "make fmt       Ruff format + autofix"
+	@echo "make docker    Build the container image"
+	@echo "make check     lint + tests, as CI would"
 
 venv:
-	/opt/homebrew/bin/python3.12 -m venv .venv
+	$(PYTHON) -m venv .venv
 
 install: venv
 	$(PIP) install -q --upgrade pip
@@ -37,3 +40,8 @@ fmt:
 clean:
 	rm -rf data/outputs/* data/catalog.db
 	find . -name __pycache__ -type d -prune -exec rm -rf {} +
+
+docker:
+	docker build -t interior-render .
+
+check: lint test

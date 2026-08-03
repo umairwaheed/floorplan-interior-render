@@ -16,3 +16,6 @@ data/catalog.db
 
 # The client's assessment brief — their document, not mine to publish.
 AI_Engineer_Technical_Assessment_v1.pdf
+
+# Curated sample outputs ARE committed — they are the evidence.
+!docs/samples/*.png
