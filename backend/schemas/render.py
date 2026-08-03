@@ -48,9 +48,21 @@ class ConsistencyScores(BaseModel):
 
     layout_fidelity: float = Field(ge=0, le=1)
     object_identity: float = Field(ge=0, le=1)
-    cross_view_consistency: float = Field(ge=0, le=1)
+    cross_view_consistency: float | None = Field(
+        default=None,
+        ge=0,
+        le=1,
+        description="None for an anchor view — it has no earlier view to be "
+        "consistent with, and scoring it 1.0 would flatter every anchor.",
+    )
     style_adherence: float = Field(ge=0, le=1)
     photorealism: float = Field(ge=0, le=1)
+
+    verified: bool = Field(
+        default=True,
+        description="False when no judge ran. An unverified render carries "
+        "placeholder scores that must never be read as a passing grade.",
+    )
 
     missing_instance_ids: list[str] = Field(default_factory=list)
     hallucinated_objects: list[str] = Field(
@@ -60,18 +72,30 @@ class ConsistencyScores(BaseModel):
 
     @property
     def overall(self) -> float:
-        """Weighted toward the criteria the brief grades hardest."""
-        return round(
-            0.30 * self.layout_fidelity
-            + 0.25 * self.object_identity
-            + 0.25 * self.cross_view_consistency
-            + 0.10 * self.style_adherence
-            + 0.10 * self.photorealism,
-            3,
-        )
+        """Weighted toward the criteria the brief grades hardest.
+
+        Renormalized when cross-view doesn't apply, so an anchor is scored on
+        what it can actually be scored on rather than given a free quarter.
+        """
+        weights = [
+            (0.30, self.layout_fidelity),
+            (0.25, self.object_identity),
+            (0.10, self.style_adherence),
+            (0.10, self.photorealism),
+        ]
+        if self.cross_view_consistency is not None:
+            weights.append((0.25, self.cross_view_consistency))
+
+        total_weight = sum(weight for weight, _ in weights)
+        return round(sum(weight * value for weight, value in weights) / total_weight, 3)
 
     def passes(self, threshold: float) -> bool:
-        return self.overall >= threshold and not self.missing_instance_ids
+        """A missing object fails outright, however good the rest looks.
+
+        The brief's hard requirement is that objects don't disappear between
+        viewpoints, so that is not something a high style score can offset.
+        """
+        return self.verified and self.overall >= threshold and not self.missing_instance_ids
 
 
 class Render(BaseModel):

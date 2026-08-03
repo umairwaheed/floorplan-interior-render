@@ -73,7 +73,7 @@ Three consequences fall out of this design for free:
 make install      # Python 3.12 venv + dependencies
 make catalog      # build the product index (~288 seeded products)
 make run          # API + web UI on http://localhost:8000
-make test         # 160 tests
+make test         # 178 tests
 ```
 
 The catalog, retrieval, BOM, calibration and geometry layers are fully offline
@@ -116,9 +116,18 @@ coordinates is asking it to do arithmetic it isn't built for.
 *or renovation* element". Flooring, paint, tile and trim are bound to catalog
 products in the scene graph, not left as free-text prompt words.
 
+**The judge is a different model from a different provider than the generator.**
+Claude scores Gemini's images. A model grading its own output is a weak signal —
+the biases that produced a mistake tend to excuse it. And the judge is handed
+*ground truth*, not just the picture: it sees the segmentation map projected
+from the frozen scene graph, so the question is never "does this look nice" but
+"is the sofa where the map says it is".
+
 **Honest reporting over flattering output.** Estimated dimensions are flagged in
-the BOM. Consistency scores ship in the API response. Furniture roles that no
-catalog product could satisfy are reported as unfilled rather than faked.
+the BOM. Consistency scores ship in the API response, including the worst view
+and not just the mean. Furniture roles that no catalog product could satisfy are
+reported as unfilled rather than faked. Running without a judge is reported as
+`verified: false` — never as a passing score.
 
 ## Architecture
 
@@ -158,6 +167,9 @@ backend/
     prompts.py            prompts assembled from the graph, never free-form
     backends.py           ImageBackend → Mock / Gemini (Nova Canvas would slot in)
     service.py            multi-view orchestration + the anchor mechanism
+  verify/
+    judge.py              Claude scores Gemini's output against ground truth
+    service.py            per-view retry + honest scene summary
   api/                    FastAPI routers
 frontend/                 vanilla JS — no build step
 tests/
@@ -225,8 +237,8 @@ here. The view-1 appearance anchor carries identity in the meantime.
 | 3. Design agent: selection + placement solver | ✅ done |
 | 4. Camera rig + numpy geometry rasterizer | ✅ done |
 | 5. Gemini image backend + multi-view prompting | ✅ done |
-| 6. VLM consistency judge + retry loop | ⬜ next |
-| 7. REST API, SSE progress, web UI, CLI | ⬜ |
+| 6. VLM consistency judge + retry loop | ✅ done |
+| 7. REST API, SSE progress, web UI, CLI | ⬜ next |
 | 8. Docs, sample outputs, Docker | ⬜ |
 
 ## Stack
