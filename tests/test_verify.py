@@ -426,3 +426,77 @@ def test_summary_surfaces_missing_and_hallucinated_objects(scene, floorplan, map
     report = summarize(final)
     assert report["missing_objects"] == ["r1:sofa#0"]
     assert report["hallucinated_objects"] == ["a piano nobody asked for"]
+
+
+def test_the_best_attempt_is_kept_not_the_last(scene, floorplan, maps, tmp_path):
+    """The measured reason this matters.
+
+    Generator spread on a fixed prompt, camera and scene is sd ~0.15-0.18 of
+    layout fidelity, while re-judging one unchanged image moves it by 0.04. So
+    a retry is mostly a fresh draw from a wide distribution, and returning the
+    last draw discards better ones already paid for. A real run went
+    0.62 -> 0.72 -> 0.64 and shipped 0.64.
+    """
+    verifier, renders, settings = _pipeline(
+        tmp_path,
+        [_scores(0.62, cross=0.62), _scores(0.72, cross=0.72), _scores(0.64, cross=0.64)],
+        attempts=3,
+    )
+    initial = _render_all(renders, scene, floorplan, maps, tmp_path)
+
+    final = verifier.verify_and_retry(
+        scene, floorplan, initial, {"r1-cam1": maps, "r1-cam2": maps}, tmp_path / "out"
+    )
+    anchor = next(r for r in final if r.is_anchor)
+
+    assert anchor.scores.overall == pytest.approx(0.72, abs=0.01), (
+        "kept the last attempt instead of the best one it had already generated"
+    )
+    # The reported score must belong to the image that ships, and that image
+    # must still exist — retries write beside earlier attempts, not over them.
+    assert anchor.image_path and Path(anchor.image_path).exists()
+
+
+def test_the_kept_image_is_the_one_that_was_scored(scene, floorplan, maps, tmp_path):
+    """Best-of-N is only honest if the file matches the verdict.
+
+    Attempts used to share one filename, so a later attempt overwrote the image
+    a winning verdict pointed at — the score would have described a discarded
+    picture.
+    """
+    verifier, renders, _ = _pipeline(
+        tmp_path,
+        [_scores(0.70, cross=0.70), _scores(0.30, cross=0.30), _scores(0.30, cross=0.30)],
+        attempts=3,
+    )
+    initial = _render_all(renders, scene, floorplan, maps, tmp_path)
+    final = verifier.verify_and_retry(
+        scene, floorplan, initial, {"r1-cam1": maps, "r1-cam2": maps}, tmp_path / "out"
+    )
+
+    anchor = next(r for r in final if r.is_anchor)
+    assert anchor.scores.overall == pytest.approx(0.70, abs=0.01)
+
+    kept = Path(anchor.image_path)
+    others = [p for p in kept.parent.glob(f"{anchor.id}*.png") if p != kept]
+    assert others, "later attempts should persist alongside, not overwrite"
+
+
+def test_an_unverified_attempt_never_wins_on_score(scene, floorplan, maps, tmp_path):
+    """A neutral placeholder must not beat a real, lower verdict.
+
+    NullJudge reports 0.5 with verified=False. If best-of-N ranked on the number
+    alone, running without a judge would silently outrank measured renders.
+    """
+    verifier, renders, _ = _pipeline(
+        tmp_path,
+        [_scores(0.40, cross=0.40), _scores(0.99, cross=0.99, verified=False)],
+        attempts=3,
+    )
+    initial = _render_all(renders, scene, floorplan, maps, tmp_path)
+    final = verifier.verify_and_retry(
+        scene, floorplan, initial, {"r1-cam1": maps, "r1-cam2": maps}, tmp_path / "out"
+    )
+
+    anchor = next(r for r in final if r.is_anchor)
+    assert anchor.scores.verified or anchor.scores.overall == pytest.approx(0.40, abs=0.01)

@@ -166,14 +166,34 @@ class VerificationService:
         room_name: str,
         on_progress: ProgressHook | None,
     ) -> Render:
-        """Judge one render, re-rolling until it passes or attempts run out."""
+        """Judge one render, re-rolling until it passes or attempts run out.
+
+        Keeps the best-scoring attempt, not the last one. Measured generator
+        spread on a fixed prompt and camera is sd ~0.15-0.18 of layout fidelity
+        (n=6, judge sd 0.04 on a fixed image — so the spread is the generator,
+        not the measurement). Against that, returning the final sample throws
+        away a better one it has already paid for: a real run went
+        0.62 -> 0.72 -> 0.64 and kept 0.64.
+        """
         current = render
         maps = conditioning.get(render.camera_id)
+        best = render
+        best_score = -1.0
+
+        def remember(candidate: Render) -> None:
+            """Track the leader. Unverified scores never win — an unchecked
+            render is not a good render, it is an unmeasured one."""
+            nonlocal best, best_score
+            scored = candidate.scores
+            if scored is not None and scored.verified and scored.overall > best_score:
+                best, best_score = candidate, scored.overall
 
         for attempt in range(self.settings.max_render_attempts):
             current.status = RenderStatus.JUDGING
             scores = self.judge.judge(current, scene, reference_path)
             current.scores = scores
+
+            remember(current)
 
             if not scores.verified:
                 # Nothing was checked, so there is nothing to retry against —
@@ -201,9 +221,9 @@ class VerificationService:
             )
 
             if is_last or maps is None:
-                # Out of attempts. Keep the best-effort image and its real
-                # score rather than discarding it; a 0.62 reported honestly is
-                # more useful than a gap.
+                # Out of attempts. Fall back to the best attempt seen, with its
+                # real score — a 0.62 reported honestly is more useful than a
+                # gap, and better than a 0.55 that merely happened to be last.
                 current.status = RenderStatus.COMPLETED
                 break
 
@@ -229,6 +249,21 @@ class VerificationService:
 
             retried.scores = None
             current = retried
+
+        if best_score >= 0 and best is not current:
+            logger.info(
+                "render %s keeping attempt %d at %.2f over final attempt at %.2f",
+                best.id,
+                best.attempts,
+                best.scores.overall if best.scores else 0.0,
+                current.scores.overall if current.scores else 0.0,
+            )
+            best.status = RenderStatus.COMPLETED
+            # `attempts` is what the view cost, not which draw won. Reporting
+            # the winner's ordinal would under-count generations already paid
+            # for and make the run look cheaper than it was.
+            best.attempts = max(best.attempts, current.attempts)
+            current = best
 
         if on_progress is not None:
             on_progress(current)

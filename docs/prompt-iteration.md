@@ -48,8 +48,16 @@ on cross-view consistency — the number the whole architecture exists to produc
 ## Caveats
 
 - **n = 1 per variant.** Judging the same image twice gave 0.44 and 0.36, so
-  judge variance is roughly ±0.1. Differences smaller than that (variants 1 vs
-  3) are not real; the 0.12 → 0.70 jump is far outside it.
+  judge variance was estimated at roughly ±0.1. Differences smaller than that
+  (variants 1 vs 3) are not real; the 0.12 → 0.70 jump is far outside it.
+
+  > **Superseded.** Round 2 re-measured this properly: re-judging one unchanged
+  > image six times gives sd **0.04**, so the judge is more reliable than this
+  > estimate. The variance is in the *generator* — same prompt and camera,
+  > different seed, sd **0.15–0.18**. That is larger than the ±0.1 assumed here,
+  > so every difference in the table above except the 0.12 → 0.70 framing jump
+  > should be read as noise. See
+  > [`prompt-iteration-2.md`](prompt-iteration-2.md).
 - **One scene, one room type, one style.** Whether the framing holds for a
   cramped bathroom or a Bohemian palette is untested.
 - Total cost of this iteration: 5 image generations and 8 judge calls.

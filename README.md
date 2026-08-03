@@ -94,9 +94,15 @@ listed a dozen invented items in the bathroom and balcony alone — taps,
 radiators, cisterns, a window.
 
 The retry loop mostly does not rescue this. Across seven views it produced one
-genuine save (0.58 → 0.60 → 0.77) and otherwise wandered inside the noise
-(0.62 → 0.72 → 0.64). At a 0.75 threshold nearly every view burns all three
-attempts, tripling cost for little gain.
+genuine save (0.58 → 0.60 → 0.77) and otherwise wandered (0.62 → 0.72 → 0.64).
+At a 0.75 threshold nearly every view burns all three attempts.
+
+That second sequence is the interesting one: the loop had already generated a
+0.72 and shipped the 0.64, because it returned the last attempt rather than the
+best. It now keeps the best — no extra spend, and strictly better for the same
+number of generations. Round 2 measured why this matters more than any wording
+change: the generator's own spread is sd ≈ 0.18 while the judge's is 0.04, so a
+retry is mostly a fresh draw from a wide distribution.
 
 ### The finding that mattered most
 
@@ -118,8 +124,10 @@ existing 3-D scene**, it treats them as the thing to preserve.
 </table>
 
 Same scene, same camera, same seed. Full method, numbers and caveats — including
-that judge variance is ±0.1 and n=1 per variant — in
-[`docs/prompt-iteration.md`](docs/prompt-iteration.md).
+that this table is n=1 per variant, so only the 0.12 → 0.72 jump is outside the
+noise — in
+[`docs/prompt-iteration.md`](docs/prompt-iteration.md) and
+[`docs/prompt-iteration-2.md`](docs/prompt-iteration-2.md).
 
 ### Cross-view consistency
 
@@ -144,7 +152,7 @@ same light.
 make install      # Python 3.12 venv + dependencies
 make catalog      # build the product index (288 seeded products)
 make run          # API + web UI on http://localhost:8000
-make test         # 182 tests
+make test         # 189 tests
 ```
 
 Then open <http://localhost:8000>, drop in a floor plan, pick a style, and watch
@@ -242,7 +250,7 @@ backend/
   api/                    FastAPI routers (catalog, floorplans, designs, SSE)
 frontend/                 vanilla JS — no build step
 cli.py                    same pipeline, no web server
-docs/                     ARCHITECTURE.md, prompt-iteration.md, samples/
+docs/                     ARCHITECTURE.md, prompt-iteration{,-2}.md, samples/
 ```
 
 ### API
@@ -304,8 +312,9 @@ Stated plainly rather than implied:
 - **The LLM slot proposer is not built.** Room programs are rule-based — good
   interior-design practice, hand-written. The interface is designed for a model
   to refine them; nothing calls one.
-- **Natural-language edits are not built.** `/regenerate` re-renders the same
-  scene graph with new seeds. The scene-graph patch path returns `501` rather
+- **Natural-language edits are not built.** `/regenerate` re-renders the stored
+  scene graph verbatim — same products, same positions, same `scene_id` — and
+  moves only the image seeds. The scene-graph patch path returns `501` rather
   than silently doing a full re-design.
 - **The catalog has no product photography.** Real product photos are the
   strongest signal for holding object identity across viewpoints; with a real
@@ -315,14 +324,21 @@ Stated plainly rather than implied:
   anchor on, the model reinvents wall positions and invents fixtures (taps,
   radiators, cisterns, a window). Object identity holds at 0.84, so the anchor
   mechanism is doing its job; the geometry conditioning is what weakens.
-- **The retry loop rarely earns its cost.** One genuine save in seven views;
-  otherwise it wanders inside judge noise while tripling spend. It needs either
-  a lower threshold, a cap of one retry, or a backend that actually responds to
-  the geometry.
+- **Generator variance is the binding constraint.** Same prompt, same camera,
+  same scene, only the seed differing: layout fidelity ranges 0.30–0.82,
+  sd ≈ 0.15–0.18 (n=6). Re-judging one unchanged image moves it by 0.04, so the
+  spread is the image model, not the measurement. The retry loop now keeps the
+  best attempt rather than the last, which is the cheapest available mitigation
+  — but it mitigates the variance rather than reducing it.
 - **Persistence is in-process.** Fine for a demo and the CLI; the swap touches
   `services/store.py` only.
-- **Evaluation is thin.** n=1 per prompt variant, one scene, one room type. Judge
-  variance is ±0.1.
+- **Prompt tuning has hit its floor.** Round 2 tested three further hypotheses
+  at n=6 per arm; none beat the control, and naming forbidden fixtures made the
+  living room *worse* (0.57 → 0.44) while doubling invented objects. Detecting a
+  genuine 0.05 effect against sd=0.18 would need ~50 samples per arm. Full
+  method, including the n=2 false positive that survived two rewrites before the
+  sample size exposed it, in
+  [`docs/prompt-iteration-2.md`](docs/prompt-iteration-2.md).
 
 ## On the time estimate
 

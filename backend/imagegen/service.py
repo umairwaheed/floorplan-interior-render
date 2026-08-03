@@ -185,7 +185,11 @@ class RenderService:
             return render
 
         output_dir.mkdir(parents=True, exist_ok=True)
-        image_path = output_dir / f"{render.id}.png"
+        # Retries write beside the earlier attempt rather than over it. The
+        # verifier keeps whichever attempt scored best, so an overwritten file
+        # would leave the winning `Render` pointing at a losing image.
+        suffix = "" if attempt == 0 else f"_a{attempt}"
+        image_path = output_dir / f"{render.id}{suffix}.png"
         result.image.save(image_path)
 
         render.image_path = str(image_path)
