@@ -18,6 +18,7 @@ real design relationships that a flat cost function would have to rediscover.
 
 from __future__ import annotations
 
+import hashlib
 import logging
 import math
 import random
@@ -886,6 +887,19 @@ def _worst_overlap(
     )
 
 
+def stable_seed(scene_seed: int, instance_id: str) -> int:
+    """A per-object seed that survives a process restart.
+
+    Python salts `hash()` on strings per process (PYTHONHASHSEED), so using it
+    here made every object's "frozen" seed different on every run — and with it
+    the scene's content hash. The whole reproducibility claim quietly depended
+    on staying inside one interpreter, which is exactly where the tests ran and
+    exactly where real usage does not.
+    """
+    digest = hashlib.blake2b(instance_id.encode(), digest_size=8).digest()
+    return (scene_seed * 31 + int.from_bytes(digest, "big")) % (2**31)
+
+
 def _to_placed(fill: SlotFill, position: Vec3, rotation: float, seed: int) -> PlacedObject:
     product = fill.product
     return PlacedObject(
@@ -903,5 +917,5 @@ def _to_placed(fill: SlotFill, position: Vec3, rotation: float, seed: int) -> Pl
         # Derived from the scene seed and the instance's stable identity, so a
         # regeneration reproduces it and an unrelated edit elsewhere cannot
         # shift this object's appearance.
-        seed=(seed * 31 + hash(fill.instance_id)) % (2**31),
+        seed=stable_seed(seed, fill.instance_id),
     )

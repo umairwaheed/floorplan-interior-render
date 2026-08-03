@@ -405,3 +405,50 @@ def test_placement_enum_classifies_derived_correctly():
     assert Placement.CEILING.is_derived
     assert not Placement.WALL_BACK.is_derived
     assert not Placement.CENTRE.is_derived
+
+
+def test_object_seeds_survive_a_process_restart():
+    """Regression: per-instance seeds must not use Python's `hash()`.
+
+    Python salts string hashing per process, so `hash(instance_id)` produced a
+    different "frozen" seed on every run — and with it a different scene hash.
+    The reproducibility test above passes either way because it stays inside
+    one interpreter, which is exactly where real usage does not. Pinning the
+    value catches any return to a process-local hash.
+    """
+    from backend.design.placement import stable_seed
+
+    assert stable_seed(11, "living:sofa#0") == stable_seed(11, "living:sofa#0")
+    assert stable_seed(11, "living:sofa#0") != stable_seed(11, "living:sofa#1")
+    assert stable_seed(11, "living:sofa#0") != stable_seed(12, "living:sofa#0")
+    # Hard-coded: a value that moves between runs means `hash()` crept back in.
+    assert stable_seed(11, "living:sofa#0") == 1083829572
+
+
+def test_scene_hash_is_stable_across_interpreters(agent, floorplan):
+    """The scene_id must be reproducible in a fresh process, not just a fresh call."""
+    import json
+    import subprocess
+    import sys
+
+    script = (
+        "from backend.design.agent import DesignAgent;"
+        "from backend.schemas.floorplan import FloorPlan;"
+        "from backend.schemas.product import DesignStyle;"
+        "import json,sys;"
+        "fp=FloorPlan.model_validate_json(sys.stdin.read());"
+        "print(DesignAgent().design(fp, DesignStyle.SCANDINAVIAN, seed=7).scene_id)"
+    )
+    ids = set()
+    for _ in range(2):
+        result = subprocess.run(
+            [sys.executable, "-c", script],
+            input=floorplan.model_dump_json(),
+            capture_output=True,
+            text=True,
+            timeout=180,
+        )
+        assert result.returncode == 0, result.stderr[-800:]
+        ids.add(result.stdout.strip())
+    assert len(ids) == 1, f"scene_id differed across processes: {ids}"
+    del json
