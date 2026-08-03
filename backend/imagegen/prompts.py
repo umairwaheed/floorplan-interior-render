@@ -213,12 +213,17 @@ def build_view_prompt(
         inventory,
     ]
 
-    if positions:
-        sections += [
-            "",
-            "EXACT SCREEN POSITIONS (must match the untextured render)",
-            positions,
-        ]
+    # Deliberately not included: a block of per-object screen coordinates.
+    #
+    # It measured +0.02 on layout fidelity — inside the ±0.1 judge variance, so
+    # not a real gain — and in a live run the model rendered the percentages as
+    # literal dimension annotations drawn onto the image, complete with leader
+    # lines, in a bathroom. The NEGATIVE_CONSTRAINTS block forbids "dimension
+    # annotations" and was overridden by the presence of the numbers. Any
+    # positional text put back here has to survive that failure mode; the
+    # measurements themselves stay on `ConditioningMaps` for the judge, which
+    # reads them as data rather than as something to draw.
+    del positions
 
     sections += ["", "CONSISTENCY", consistency, "", "DO NOT", NEGATIVE_CONSTRAINTS]
     return "\n".join(sections)

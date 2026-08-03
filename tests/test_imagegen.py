@@ -224,14 +224,28 @@ def test_prompt_frames_the_task_as_re_rendering_not_generating(scene, camera, tm
     assert "MATERIAL AND LIGHTING PASS ONLY" in prompt
 
 
-def test_prompt_states_screen_positions_as_text(scene, camera, tmp_path):
-    """Numbers alongside pixels — the model grounds on the text where it drifts
-    on the map."""
+def test_prompt_does_not_leak_screen_coordinates_into_the_image(scene, camera, tmp_path):
+    """Regression: percentages in the prompt get *drawn* on the render.
+
+    A block of per-object screen coordinates measured +0.02 on layout fidelity
+    — inside the ±0.1 judge variance, so not a real gain — and in a live run
+    the model rendered them as literal dimension annotations with leader lines
+    across a bathroom wall. `NEGATIVE_CONSTRAINTS` forbids dimension
+    annotations and was overridden by the mere presence of the numbers.
+
+    The measurements stay on `ConditioningMaps` for the judge, which reads them
+    as data. They must not reach the generation prompt.
+    """
     maps = _maps(tmp_path, ["r1:sofa#0"])
     maps.instance_screen_boxes = {"r1:sofa#0": (10, 20, 60, 90)}
     prompt = build_view_prompt(scene, camera, maps, is_anchor=True)
-    assert "EXACT SCREEN POSITIONS" in prompt
-    assert "x 10%-60%" in prompt
+
+    assert "EXACT SCREEN POSITIONS" not in prompt
+    assert "10%" not in prompt and "60%" not in prompt, (
+        "screen-space percentages reached the prompt; the model will draw them"
+    )
+    # The data itself is still carried, for the judge.
+    assert maps.instance_screen_boxes["r1:sofa#0"] == (10, 20, 60, 90)
 
 
 def test_prompt_survives_a_view_with_nothing_visible(scene, camera, tmp_path):
