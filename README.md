@@ -73,7 +73,7 @@ Three consequences fall out of this design for free:
 make install      # Python 3.12 venv + dependencies
 make catalog      # build the product index (~288 seeded products)
 make run          # API + web UI on http://localhost:8000
-make test         # 116 tests
+make test         # 138 tests
 ```
 
 The catalog, retrieval, BOM, calibration and geometry layers are fully offline
@@ -150,6 +150,10 @@ backend/
     geometry.py           exact OBB intersection, inward normals
     placement.py          two-tier constraint solver (anneal + derive)
     agent.py              orchestration → content-hashed Scene
+  render/
+    cameras.py            viewpoint selection, scored by actual rasterization
+    raster.py             pinhole + z-buffer → depth, segmentation, wireframe
+    service.py            → ConditioningMaps on disk
   api/                    FastAPI routers
 frontend/                 vanilla JS — no build step
 tests/
@@ -198,8 +202,8 @@ here. The view-1 appearance anchor carries identity in the meantime.
 | 1. Catalog adapters, index, hybrid retrieval, BOM | ✅ done |
 | 2. Floor plan ingestion + m² scale calibration | ✅ done |
 | 3. Design agent: selection + placement solver | ✅ done |
-| 4. Camera rig + numpy geometry rasterizer | ⬜ next |
-| 5. Gemini image backend + multi-view prompting | ⬜ |
+| 4. Camera rig + numpy geometry rasterizer | ✅ done |
+| 5. Gemini image backend + multi-view prompting | ⬜ next |
 | 6. VLM consistency judge + retry loop | ⬜ |
 | 7. REST API, SSE progress, web UI, CLI | ⬜ |
 | 8. Docs, sample outputs, Docker | ⬜ |

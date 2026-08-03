@@ -183,23 +183,43 @@ def _centre_candidates(context: RoomContext, size: Size3, steps: int = 7) -> lis
 
 
 def _corner_candidates(context: RoomContext, size: Size3) -> list[Candidate]:
-    """Tucked into each corner, inset by the object's own half-diagonal."""
-    candidates: list[Candidate] = []
-    inset = max(size.width, size.depth) / 2.0 + context.settings.wall_clearance_m
-    centroid = context.centroid
+    """Tucked into each corner, clear of both walls that meet there.
 
-    for vertex in context.polygon:
-        toward_centre = Vec2(x=centroid.x - vertex.x, y=centroid.y - vertex.y)
-        length = toward_centre.length() or 1.0
+    The offset is built from the two walls' inward normals rather than from a
+    single scalar along the diagonal. A diagonal inset of `max(w, d)/2` looks
+    right but leaves less than half that along each axis, so the footprint
+    still pokes through a wall — and every corner candidate gets rejected,
+    silently collapsing the object to the room centre. That is how a floor lamp
+    ends up standing in the middle of a studio.
+    """
+    candidates: list[Candidate] = []
+    clearance = context.settings.wall_clearance_m
+    centroid = context.centroid
+    edges = context.edges
+
+    for index in range(len(context.polygon)):
+        vertex = context.polygon[index]
+        # The two edges meeting at this vertex, with their inward normals.
+        _, _, normal_out, _ = edges[index - 1]
+        _, _, normal_in, _ = edges[index]
+
+        # Half-*diagonal*, not half-width: a rotated rectangle reaches
+        # hypot(w, d)/2 from its centre in the worst direction. Using max(w, d)/2
+        # passes for thin objects by luck and fails for square ones, which is
+        # why every corner candidate for a square plant was being rejected.
+        reach = math.hypot(size.width, size.depth) / 2.0 + clearance
         position = Vec2(
-            x=vertex.x + toward_centre.x / length * inset,
-            y=vertex.y + toward_centre.y / length * inset,
+            x=vertex.x + (normal_out.x + normal_in.x) * reach,
+            y=vertex.y + (normal_out.y + normal_in.y) * reach,
         )
-        corners = rect_corners(position, size.width, size.depth, 0.0)
+
+        toward_centre = Vec2(x=centroid.x - position.x, y=centroid.y - position.y)
+        rotation = rotation_to_face(toward_centre) if toward_centre.length() > 1e-6 else 0.0
+
+        corners = rect_corners(position, size.width, size.depth, rotation)
         if outside_area(context.polygon, corners) < 1e-6:
-            candidates.append(
-                Candidate(position=position, rotation_deg=rotation_to_face(toward_centre))
-            )
+            candidates.append(Candidate(position=position, rotation_deg=rotation))
+
     return candidates
 
 
