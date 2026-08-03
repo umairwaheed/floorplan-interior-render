@@ -74,12 +74,29 @@ objects keep their seeds).
 Measured by an independent judge — Claude scoring Gemini's output against the
 segmentation map projected from the frozen scene graph.
 
-| | score |
-|---|---|
-| End-to-end run on the supplied floor plan | **0.82** |
-| Layout fidelity (best configuration) | **0.72** |
-| Object identity | **0.85** |
-| **Cross-view consistency** | **0.87** |
+**A single-room best case, and a four-room production run, differ a lot** —
+both are shown because only reporting the first would be misleading.
+
+| | single room, tuned | full 4-room run |
+|---|---|---|
+| Mean consistency | 0.82 | **0.69** |
+| Layout fidelity | 0.72 | **0.43** |
+| Object identity | 0.85 | **0.84** |
+| Cross-view consistency | 0.87 | — |
+| Worst view | — | **0.59** |
+
+The 0.72 layout figure comes from one living-room scene during prompt
+iteration. Running the whole supplied floor plan — studio, bedroom, bathroom,
+balcony, seven views — gives **0.43**. Object identity holds up (0.84); layout
+does not generalize. Sparse rooms are the worst offenders: with few objects to
+anchor on, the model reinvents wall positions and adds fixtures. The judge
+listed a dozen invented items in the bathroom and balcony alone — taps,
+radiators, cisterns, a window.
+
+The retry loop mostly does not rescue this. Across seven views it produced one
+genuine save (0.58 → 0.60 → 0.77) and otherwise wandered inside the noise
+(0.62 → 0.72 → 0.64). At a 0.75 threshold nearly every view burns all three
+attempts, tripling cost for little gain.
 
 ### The finding that mattered most
 
@@ -293,11 +310,15 @@ Stated plainly rather than implied:
 - **The catalog has no product photography.** Real product photos are the
   strongest signal for holding object identity across viewpoints; with a real
   catalog this pipeline would be measurably more consistent than it is here.
-- **Small objects still drift.** Layout fidelity of 0.72 is a large improvement,
-  not fidelity. The judge's remaining complaints are consistently about cushions,
-  rug extents and a coffee table shifted a few percent. Large objects land
-  correctly. Occasionally an untextured placeholder block survives into the
-  output.
+- **Layout fidelity does not generalize.** 0.72 on a tuned single room, 0.43
+  across the four-room supplied plan. Sparse rooms are worst — with little to
+  anchor on, the model reinvents wall positions and invents fixtures (taps,
+  radiators, cisterns, a window). Object identity holds at 0.84, so the anchor
+  mechanism is doing its job; the geometry conditioning is what weakens.
+- **The retry loop rarely earns its cost.** One genuine save in seven views;
+  otherwise it wanders inside judge noise while tripling spend. It needs either
+  a lower threshold, a cap of one retry, or a backend that actually responds to
+  the geometry.
 - **Persistence is in-process.** Fine for a demo and the CLI; the swap touches
   `services/store.py` only.
 - **Evaluation is thin.** n=1 per prompt variant, one scene, one room type. Judge
