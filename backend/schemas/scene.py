@@ -178,18 +178,38 @@ class Scene(BaseModel):
         description="Roles no catalog product could satisfy. Reported, never faked.",
     )
 
+    render_salt: int = Field(
+        default=0,
+        description="Bumped to re-photograph this scene. Excluded from the hash.",
+    )
+
     def content_hash(self) -> str:
         """Hash of everything that affects the generated image.
 
         Deliberately excludes `scene_id` itself and any downstream artefacts,
         so an unchanged scene always hashes identically.
+
+        `render_salt` is excluded too, and that exclusion is the whole point of
+        regeneration: re-photographing a room must not change what the room
+        *is*. A regenerated scene keeps its original `scene_id`, so "same id"
+        continues to mean "same furniture, same positions, same products" —
+        which is the guarantee the consistency requirement rests on.
         """
         payload = self.model_dump(
             mode="json",
-            exclude={"scene_id"},
+            exclude={"scene_id", "render_salt"},
         )
         canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(canonical.encode()).hexdigest()[:16]
+
+    @property
+    def output_key(self) -> str:
+        """Directory name for this scene's artefacts.
+
+        Carries the salt so a regeneration writes beside the original rather
+        than overwriting images the user may still be looking at.
+        """
+        return self.scene_id if not self.render_salt else f"{self.scene_id}-r{self.render_salt}"
 
     def finalize(self) -> Scene:
         """Freeze the scene by stamping its content hash."""

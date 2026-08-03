@@ -22,6 +22,7 @@ from ..config import get_settings
 from ..ingest.loader import SUPPORTED_SUFFIXES, UnsupportedPlanFormat, page_count
 from ..ingest.service import FloorPlanIngestService, IngestionError
 from ..schemas.render import DesignRequest, RegenerateRequest
+from ..schemas.scene import Scene
 from ..services.store import FLOORPLAN_STORE, JOB_STORE
 
 logger = logging.getLogger(__name__)
@@ -253,11 +254,10 @@ def get_bom(job_id: str, variation: int = 0) -> dict[str, object]:
 async def regenerate(job_id: str, request: RegenerateRequest) -> dict[str, object]:
     """Re-render an existing design.
 
-    With `preserve_scene` the scene graph is reused verbatim and only the image
-    seeds change — which is what "regenerate, same room" has to mean for the
-    result to be comparable. Patch-based edits from a natural-language change
-    request are not implemented; see the response note rather than a silent
-    full re-design.
+    With `preserve_scene` the stored scene graphs are handed to the pipeline
+    verbatim and only the image seeds move, so every object keeps its product,
+    position and size. Patch-based edits from a natural-language change request
+    are not implemented; see the response note rather than a silent re-design.
     """
     job = JOB_STORE.get(job_id)
     if job is None:
@@ -277,22 +277,54 @@ async def regenerate(job_id: str, request: RegenerateRequest) -> dict[str, objec
             ),
         )
 
+    scenes: list[Scene] | None = None
+    if request.preserve_scene:
+        scenes = _scenes_for(job)
+        if not scenes:
+            raise HTTPException(
+                status_code=409,
+                detail=(
+                    "This job's scene graphs are no longer cached, so the scene cannot be "
+                    "preserved. Re-running the design would move furniture, which is the "
+                    "opposite of what was asked — start a new design instead."
+                ),
+            )
+        if request.views_per_room and request.views_per_room != job.request.views_per_room:
+            # Cameras belong to the scene, so changing the view count re-hashes
+            # it. The objects are untouched, which is what the brief protects:
+            # "only the camera viewpoint may change".
+            scenes = [
+                JOB_STORE.pipeline.scenes.attach_cameras(
+                    scene.model_copy(deep=True), stored.floorplan, request.views_per_room
+                )
+                for scene in scenes
+            ]
+        # Same graph, different photographs. Salting here rather than reseeding
+        # the design is the whole fix: `seed` drives the placement solver.
+        scenes = [
+            scene.model_copy(update={"render_salt": scene.render_salt + 1}) for scene in scenes
+        ]
+
     new_request = job.request.model_copy(
-        update={
-            "views_per_room": request.views_per_room or job.request.views_per_room,
-            # A different seed with the same scene graph is exactly "same room,
-            # new photographs".
-            "seed": (job.request.seed or 0) + 1,
-        }
+        update={"views_per_room": request.views_per_room or job.request.views_per_room}
     )
     new_job = JOB_STORE.create(new_request)
-    JOB_STORE.start(new_job, stored.floorplan)
+    JOB_STORE.start(new_job, stored.floorplan, scenes=scenes)
     return {
         "job_id": new_job.id,
         "status": new_job.status.value,
         "stream_url": f"/designs/{new_job.id}/stream",
         "preserved_scene": request.preserve_scene,
+        "scene_ids": [scene.scene_id for scene in scenes] if scenes else [],
     }
+
+
+def _scenes_for(job) -> list[Scene]:
+    """The job's scene graphs, in variation order. Empty if any is missing."""
+    pipeline = JOB_STORE.pipeline
+    ordered = sorted(job.variations, key=lambda v: v.variation_index)
+    found = [pipeline.scene(v.scene_id) for v in ordered]
+    return [s for s in found if s is not None] if all(s is not None for s in found) else []
 
 
 def _job_payload(job) -> dict[str, object]:

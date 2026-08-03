@@ -120,8 +120,15 @@ class DesignPipeline:
         job: DesignJob,
         floorplan: FloorPlan,
         on_progress: ProgressHook | None = None,
+        scenes: list[Scene] | None = None,
     ) -> DesignJob:
-        """Execute a job, mutating it in place so the caller can poll it too."""
+        """Execute a job, mutating it in place so the caller can poll it too.
+
+        `scenes` re-photographs an existing design: the graphs are used exactly
+        as given rather than re-solved. Passing them is the only way to honour
+        "regenerate, same scene" — re-running the solver with a different seed
+        moves furniture, however small the change to the request looks.
+        """
         request = job.request
         started = time.monotonic()
 
@@ -133,18 +140,27 @@ class DesignPipeline:
                 on_progress(ProgressEvent(job.id, status, progress, detail, **kwargs))
 
         try:
-            total = max(request.variations, 1)
+            total = max(request.variations, 1) if scenes is None else len(scenes)
             for index in range(total):
                 base = index / total
                 span = 1.0 / total
 
-                emit(
-                    JobStatus.DESIGNING,
-                    base + span * 0.05,
-                    f"Designing variation {index + 1} of {total}",
-                    variation_index=index,
-                )
-                scene = self._design(floorplan, request, index)
+                if scenes is not None:
+                    scene = scenes[index]
+                    emit(
+                        JobStatus.DESIGNING,
+                        base + span * 0.05,
+                        f"Reusing scene {scene.scene_id} ({len(scene.objects)} objects)",
+                        variation_index=index,
+                    )
+                else:
+                    emit(
+                        JobStatus.DESIGNING,
+                        base + span * 0.05,
+                        f"Designing variation {index + 1} of {total}",
+                        variation_index=index,
+                    )
+                    scene = self._design(floorplan, request, index)
 
                 emit(
                     JobStatus.RASTERIZING,
@@ -152,7 +168,7 @@ class DesignPipeline:
                     f"Placing cameras and projecting geometry ({len(scene.cameras)} views)",
                     variation_index=index,
                 )
-                output_dir = self.settings.output_dir / scene.scene_id
+                output_dir = self.settings.output_dir / scene.output_key
                 conditioning = self.scenes.render_scene(scene, floorplan, output_dir)
 
                 # Renders stream out as they finish, so the gallery fills in

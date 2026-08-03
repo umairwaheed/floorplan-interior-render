@@ -62,7 +62,7 @@ class VerificationService:
         judged against a *final* reference rather than one that is about to be
         replaced.
         """
-        output_dir = output_dir or (self.settings.output_dir / scene.scene_id)
+        output_dir = output_dir or (self.settings.output_dir / scene.output_key)
         by_room: dict[str, list[Render]] = {}
         for render in renders:
             by_room.setdefault(render.room_id, []).append(render)

@@ -45,17 +45,21 @@ logger = logging.getLogger(__name__)
 ProgressHook = Callable[[Render], None]
 
 
-def view_seed(scene_seed: int, camera_id: str, attempt: int = 0) -> int:
+def view_seed(scene_seed: int, camera_id: str, attempt: int = 0, salt: int = 0) -> int:
     """A stable per-view seed.
 
     Derived from the scene seed and the camera's identity rather than from a
     counter, so adding a camera to one room cannot renumber another room's
     views and silently change images the user already approved.
+
+    `salt` is the regeneration axis. It moves the image sampling without
+    touching the scene graph, which is what "same room, new photographs" has
+    to mean — varying the *scene* seed instead would re-solve the layout.
     """
     digest = 0
     for char in camera_id:
         digest = (digest * 131 + ord(char)) % (2**31)
-    return (scene_seed * 7919 + digest + attempt * 104729) % (2**31)
+    return (scene_seed * 7919 + digest + attempt * 104729 + salt * 15485863) % (2**31)
 
 
 class RenderService:
@@ -136,7 +140,7 @@ class RenderService:
     ) -> Render:
         """Generate one view. Never raises — failures land on the `Render`."""
         is_anchor = anchor_path is None
-        seed = view_seed(scene.seed, camera.id, attempt)
+        seed = view_seed(scene.seed, camera.id, attempt, scene.render_salt)
 
         render = Render(
             id=f"{scene.scene_id}_{camera.id}",
@@ -202,7 +206,7 @@ class RenderService:
         Rooms are independent; views within a room are sequential because a
         later view needs the anchor image to exist on disk.
         """
-        output_dir = output_dir or (self.settings.output_dir / scene.scene_id)
+        output_dir = output_dir or (self.settings.output_dir / scene.output_key)
         renders: list[Render] = []
 
         for room_id in scene.room_ids:

@@ -27,6 +27,7 @@ from ..config import get_settings
 from ..ingest.loader import LoadedPlan
 from ..schemas.floorplan import FloorPlan
 from ..schemas.render import DesignJob, DesignRequest
+from ..schemas.scene import Scene
 from .pipeline import DesignPipeline, ProgressEvent
 
 logger = logging.getLogger(__name__)
@@ -118,17 +119,30 @@ class JobStore:
             (r.job for r in self._jobs.values()), key=lambda j: j.created_at, reverse=True
         )
 
-    def start(self, job: DesignJob, floorplan: FloorPlan) -> None:
-        """Queue a job. Returns immediately; progress arrives via `subscribe`."""
+    def start(
+        self,
+        job: DesignJob,
+        floorplan: FloorPlan,
+        scenes: list[Scene] | None = None,
+    ) -> None:
+        """Queue a job. Returns immediately; progress arrives via `subscribe`.
+
+        `scenes` re-photographs those exact graphs instead of designing new ones.
+        """
         record = self._jobs[job.id]
         try:
             record.loop = asyncio.get_running_loop()
         except RuntimeError:
             record.loop = None  # started from the CLI, no event loop
 
-        self._executor.submit(self._run, record, floorplan)
+        self._executor.submit(self._run, record, floorplan, scenes)
 
-    def _run(self, record: JobRecord, floorplan: FloorPlan) -> None:
+    def _run(
+        self,
+        record: JobRecord,
+        floorplan: FloorPlan,
+        scenes: list[Scene] | None = None,
+    ) -> None:
         def on_progress(event: ProgressEvent) -> None:
             # Numbered before publishing, so a replaying stream can tell which
             # events it has already sent.
@@ -137,7 +151,7 @@ class JobStore:
             self._publish(record, event)
 
         try:
-            self._pipeline.run(record.job, floorplan, on_progress=on_progress)
+            self._pipeline.run(record.job, floorplan, on_progress=on_progress, scenes=scenes)
         finally:
             record.job.completed_at = datetime.now(UTC).isoformat()
             record.done.set()

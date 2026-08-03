@@ -84,7 +84,7 @@ class SceneRenderer:
         )
 
         output_dir.mkdir(parents=True, exist_ok=True)
-        stem = f"{scene.scene_id}_{camera.id}"
+        stem = f"{scene.output_key}_{camera.id}"
 
         depth_path = output_dir / f"{stem}_depth.png"
         segmentation_path = output_dir / f"{stem}_segmentation.png"
@@ -116,7 +116,7 @@ class SceneRenderer:
         self, scene: Scene, floorplan: FloorPlan, output_dir: Path | None = None
     ) -> dict[str, ConditioningMaps]:
         """Rasterize every camera in a scene. Returns camera_id → maps."""
-        output_dir = output_dir or (self.settings.output_dir / scene.scene_id)
+        output_dir = output_dir or (self.settings.output_dir / scene.output_key)
         maps: dict[str, ConditioningMaps] = {}
 
         for camera in scene.cameras:
